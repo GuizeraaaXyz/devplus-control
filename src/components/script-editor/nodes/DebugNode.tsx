@@ -1,3 +1,4 @@
+import i18n from "@/lib/i18n.ts";
 import { useSelector } from "@tanstack/react-store";
 import { Handle, type NodeProps, Position } from "@xyflow/react";
 import { Bug, Copy, Trash2 } from "lucide-react";
@@ -164,7 +165,9 @@ function DebugNodeComponent({ id, data, selected }: DebugNodeProps) {
                 borderRadius: "50%",
               }}
             />
-            <span className="text-xs text-muted-foreground">In</span>
+            <span className="text-xs text-muted-foreground">
+              {i18n.t("common:customUi.in")}
+            </span>
           </div>
 
           {/* Output (pass-through) */}
@@ -182,7 +185,9 @@ function DebugNodeComponent({ id, data, selected }: DebugNodeProps) {
                 borderRadius: "50%",
               }}
             />
-            <span className="text-xs text-muted-foreground">Out</span>
+            <span className="text-xs text-muted-foreground">
+              {i18n.t("common:customUi.out")}
+            </span>
           </div>
         </div>
       </div>
@@ -193,7 +198,8 @@ function DebugNodeComponent({ id, data, selected }: DebugNodeProps) {
           {currentValue ? (
             <div className="space-y-1">
               <div className="text-xs text-muted-foreground">
-                Current ({formatTime(currentValue.timestamp)}):
+                {i18n.t("common:customUi.jsxCurrent")}
+                {formatTime(currentValue.timestamp)}):
               </div>
               <div className="font-mono text-sm break-all">
                 {formatValue(currentValue.value)}
@@ -203,7 +209,7 @@ function DebugNodeComponent({ id, data, selected }: DebugNodeProps) {
             <Empty className="border-0 p-2">
               <EmptyHeader className="gap-1">
                 <EmptyTitle className="text-xs text-muted-foreground">
-                  No value received yet
+                  {i18n.t("common:customUi.extraNovaluereceivedyet")}
                 </EmptyTitle>
               </EmptyHeader>
             </Empty>
@@ -215,7 +221,9 @@ function DebugNodeComponent({ id, data, selected }: DebugNodeProps) {
       {history.length > 1 && (
         <div className="border-t border-border/50 px-2 py-2">
           <div className="text-xs text-muted-foreground mb-1">
-            History ({history.length} values)
+            {i18n.t("common:customUi.jsxHistory")}
+            {history.length}
+            {i18n.t("common:customUi.jsxvalues")}
           </div>
           <ScrollArea className="h-[80px]">
             <div className="space-y-1">

@@ -1,5 +1,7 @@
 "use client";
 
+import i18n from "@/lib/i18n.ts";
+
 import type {
   ColumnSort,
   ReactTable,
@@ -215,7 +217,7 @@ function DataTableSortListContent<TData extends RowData>({
           }
         >
           <ArrowDownUp className="text-muted-foreground" />
-          Sort
+          {i18n.t("common:customUi.jsxSort")}
           {sorting.length > 0 && (
             <Badge
               variant="secondary"
@@ -233,7 +235,9 @@ function DataTableSortListContent<TData extends RowData>({
         >
           <div className="flex flex-col gap-1">
             <h4 id={labelId} className="font-medium leading-none">
-              {sorting.length > 0 ? "Sort by" : "No sorting applied"}
+              {sorting.length > 0
+                ? i18n.t("common:customUi.expressionSortby")
+                : i18n.t("common:customUi.expressionNosortingapplied")}
             </h4>
             <p
               id={descriptionId}
@@ -243,8 +247,12 @@ function DataTableSortListContent<TData extends RowData>({
               )}
             >
               {sorting.length > 0
-                ? "Modify sorting to organize your rows."
-                : "Add sorting to organize your rows."}
+                ? i18n.t(
+                    "common:customUi.expressionModifysortingtoorganizeyourrows",
+                  )
+                : i18n.t(
+                    "common:customUi.expressionAddsortingtoorganizeyourrows",
+                  )}
             </p>
           </div>
           {sorting.length > 0 && (
@@ -277,7 +285,7 @@ function DataTableSortListContent<TData extends RowData>({
               onClick={onSortAdd}
               disabled={columns.length === 0}
             >
-              Add sort
+              {i18n.t("common:customUi.extraAddsort")}
             </Button>
             {sorting.length > 0 && (
               <Button
@@ -286,7 +294,7 @@ function DataTableSortListContent<TData extends RowData>({
                 className="rounded"
                 onClick={onSortingReset}
               >
-                Reset sorting
+                {i18n.t("common:customUi.extraResetsorting")}
               </Button>
             )}
           </div>
@@ -381,9 +389,13 @@ function DataTableSortItem({
         </PopoverTrigger>
         <PopoverContent id={fieldListboxId} className="w-(--anchor-width) p-0">
           <Command>
-            <CommandInput placeholder="Search fields..." />
+            <CommandInput
+              placeholder={i18n.t("common:customUi.searchFields")}
+            />
             <CommandList>
-              <CommandEmpty>No fields found.</CommandEmpty>
+              <CommandEmpty>
+                {i18n.t("common:customUi.noFieldsFound")}
+              </CommandEmpty>
               <CommandGroup>
                 {columns.map((column) => (
                   <CommandItem
@@ -423,7 +435,7 @@ function DataTableSortItem({
           className="min-w-(--anchor-width)"
         >
           <SelectGroup>
-            <SelectLabel>Sort direction</SelectLabel>
+            <SelectLabel>{i18n.t("common:customUi.sortDirection")}</SelectLabel>
             {sortOrderItems.map((order) => (
               <SelectItem key={order.value} value={order.value}>
                 {order.label}

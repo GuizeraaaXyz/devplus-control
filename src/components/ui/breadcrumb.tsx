@@ -1,3 +1,4 @@
+import i18n from "@/lib/i18n.ts";
 import { mergeProps } from "@base-ui/react/merge-props";
 import { useRender } from "@base-ui/react/use-render";
 import { ChevronRightIcon, MoreHorizontalIcon } from "lucide-react";
@@ -7,7 +8,7 @@ import { cn } from "@/lib/utils";
 function Breadcrumb({ className, ...props }: React.ComponentProps<"nav">) {
   return (
     <nav
-      aria-label="breadcrumb"
+      aria-label={i18n.t("common:customUi.jsxbreadcrumb")}
       data-slot="breadcrumb"
       className={cn(className)}
       {...props}
@@ -105,7 +106,7 @@ function BreadcrumbEllipsis({
       {...props}
     >
       <MoreHorizontalIcon />
-      <span className="sr-only">More</span>
+      <span className="sr-only">{i18n.t("common:customUi.more")}</span>
     </span>
   );
 }

@@ -1,5 +1,7 @@
 "use client";
 
+import i18n from "@/lib/i18n.ts";
+
 import type { Column, ReactTable, RowData } from "@tanstack/react-table";
 import {
   BadgeCheck,
@@ -245,7 +247,7 @@ export function DataTableFilterMenu<TData extends RowData>({
       ))}
       {filters.length > 0 && (
         <Button
-          aria-label="Reset all filters"
+          aria-label={i18n.t("common:customUi.resetAllFilters")}
           variant="outline"
           size="icon"
           className="size-8"
@@ -258,7 +260,7 @@ export function DataTableFilterMenu<TData extends RowData>({
         <PopoverTrigger
           render={
             <Button
-              aria-label="Open filter command menu"
+              aria-label={i18n.t("common:customUi.openFilterCommandMenu")}
               variant="outline"
               size={filters.length > 0 ? "icon" : "sm"}
               className={cn(filters.length > 0 && "size-8", "h-8 font-normal")}
@@ -269,7 +271,9 @@ export function DataTableFilterMenu<TData extends RowData>({
           }
         >
           <ListFilter className="text-muted-foreground" />
-          {filters.length > 0 ? null : "Filter"}
+          {filters.length > 0
+            ? null
+            : i18n.t("common:customUi.expressionFilter")}
         </PopoverTrigger>
         <PopoverContent
           className="w-full max-w-(--radix-popover-content-available-width) p-0"
@@ -281,7 +285,7 @@ export function DataTableFilterMenu<TData extends RowData>({
               placeholder={
                 selectedColumn
                   ? (selectedColumn.columnDef.meta?.label ?? selectedColumn.id)
-                  : "Search fields..."
+                  : i18n.t("common:customUi.expressionSearchfields")
               }
               value={inputValue}
               onValueChange={setInputValue}
@@ -291,7 +295,9 @@ export function DataTableFilterMenu<TData extends RowData>({
               {selectedColumn ? (
                 <>
                   {selectedColumn.columnDef.meta?.options && (
-                    <CommandEmpty>No options found.</CommandEmpty>
+                    <CommandEmpty>
+                      {i18n.t("common:customUi.noOptionsFound")}
+                    </CommandEmpty>
                   )}
                   <FilterValueSelector
                     column={selectedColumn}
@@ -301,7 +307,9 @@ export function DataTableFilterMenu<TData extends RowData>({
                 </>
               ) : (
                 <>
-                  <CommandEmpty>No fields found.</CommandEmpty>
+                  <CommandEmpty>
+                    {i18n.t("common:customUi.noFieldsFound")}
+                  </CommandEmpty>
                   <CommandGroup>
                     {columns.map((column) => (
                       <CommandItem
@@ -420,9 +428,13 @@ function DataTableFilterItem<TData extends RowData>({
           </PopoverTrigger>
           <PopoverContent align="start" className="w-48 p-0">
             <Command loop>
-              <CommandInput placeholder="Search fields..." />
+              <CommandInput
+                placeholder={i18n.t("common:customUi.searchFields")}
+              />
               <CommandList>
-                <CommandEmpty>No fields found.</CommandEmpty>
+                <CommandEmpty>
+                  {i18n.t("common:customUi.noFieldsFound")}
+                </CommandEmpty>
                 <CommandGroup>
                   {columns.map((column) => (
                     <CommandItem
@@ -486,7 +498,9 @@ function DataTableFilterItem<TData extends RowData>({
           </SelectTrigger>
           <SelectContent id={operatorListboxId}>
             <SelectGroup>
-              <SelectLabel>Filter operator</SelectLabel>
+              <SelectLabel>
+                {i18n.t("common:customUi.filterOperator")}
+              </SelectLabel>
               {filterOperators.map((operator) => (
                 <SelectItem
                   key={operator.value}
@@ -539,10 +553,10 @@ function FilterValueSelector<TData extends RowData>({
       return (
         <CommandGroup>
           <CommandItem value="true" onSelect={() => onSelect("true")}>
-            True
+            {i18n.t("common:customUi.extraTrue")}
           </CommandItem>
           <CommandItem value="false" onSelect={() => onSelect("false")}>
-            False
+            {i18n.t("common:customUi.extraFalse")}
           </CommandItem>
         </CommandGroup>
       );
@@ -594,12 +608,15 @@ function FilterValueSelector<TData extends RowData>({
             {isEmpty ? (
               <>
                 <Text />
-                <span>Type to add filter...</span>
+                <span>{i18n.t("common:customUi.typeToAddFilter")}</span>
               </>
             ) : (
               <>
                 <BadgeCheck />
-                <span className="truncate">Filter by &quot;{value}&quot;</span>
+                <span className="truncate">
+                  {i18n.t("common:customUi.jsxFilterby")}
+                  {value}&quot;
+                </span>
               </>
             )}
           </CommandItem>
@@ -633,7 +650,9 @@ function onFilterInputRender<TData extends RowData>({
         id={inputId}
         role="status"
         aria-label={`${column.columnDef.meta?.label} filter is ${
-          filter.operator === "isEmpty" ? "empty" : "not empty"
+          filter.operator === "isEmpty"
+            ? i18n.t("common:customUi.expressionempty")
+            : i18n.t("common:customUi.expressionnotempty")
         }`}
         aria-live="polite"
         className="h-full w-16 rounded-none border bg-transparent px-1.5 py-0.5 text-muted-foreground dark:bg-input/30"
@@ -668,7 +687,10 @@ function onFilterInputRender<TData extends RowData>({
           id={inputId}
           type={isNumber ? "number" : "text"}
           inputMode={isNumber ? "numeric" : undefined}
-          placeholder={column.columnDef.meta?.placeholder ?? "Enter value..."}
+          placeholder={
+            column.columnDef.meta?.placeholder ??
+            i18n.t("common:customUi.expressionEntervalue")
+          }
           className="h-full w-24 rounded-none px-1.5"
           defaultValue={typeof filter.value === "string" ? filter.value : ""}
           onChange={(event) =>
@@ -699,11 +721,17 @@ function onFilterInputRender<TData extends RowData>({
             aria-controls={inputListboxId}
             className="rounded-none bg-transparent px-1.5 py-0.5 [&_svg]:hidden"
           >
-            <SelectValue placeholder={filter.value ? "True" : "False"} />
+            <SelectValue
+              placeholder={
+                filter.value
+                  ? i18n.t("common:customUi.expressionTrue")
+                  : i18n.t("common:customUi.expressionFalse")
+              }
+            />
           </SelectTrigger>
           <SelectContent id={inputListboxId}>
             <SelectGroup>
-              <SelectLabel>Filter value</SelectLabel>
+              <SelectLabel>{i18n.t("common:customUi.filterValue")}</SelectLabel>
               {BOOLEAN_FILTER_ITEMS.map((item) => (
                 <SelectItem key={item.value} value={item.value}>
                   {item.label}
@@ -743,9 +771,9 @@ function onFilterInputRender<TData extends RowData>({
           >
             {selectedOptions.length === 0 ? (
               filter.variant === "multiSelect" ? (
-                "Select options..."
+                i18n.t("common:customUi.expressionSelectoptions")
               ) : (
-                "Select option..."
+                i18n.t("common:customUi.expressionSelectoption")
               )
             ) : (
               <>
@@ -775,9 +803,13 @@ function onFilterInputRender<TData extends RowData>({
             className="w-48 p-0"
           >
             <Command>
-              <CommandInput placeholder="Search options..." />
+              <CommandInput
+                placeholder={i18n.t("common:customUi.searchOptions")}
+              />
               <CommandList>
-                <CommandEmpty>No options found.</CommandEmpty>
+                <CommandEmpty>
+                  {i18n.t("common:customUi.noOptionsFound")}
+                </CommandEmpty>
                 <CommandGroup>
                   {options.map((option) => (
                     <CommandItem

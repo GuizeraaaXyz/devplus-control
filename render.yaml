@@ -1,0 +1,24 @@
+services:
+  - type: web
+    name: devplus-license-api
+    runtime: docker
+    plan: 0.5c-512mb
+    dockerfilePath: ./license-server/Dockerfile
+    dockerContext: .
+    healthCheckPath: /health
+    numInstances: 1
+    disk:
+      name: license-data
+      mountPath: /var/data
+      sizeGB: 1
+    envVars:
+      - key: LICENSE_HOST
+        value: 0.0.0.0
+      - key: LICENSE_DB_PATH
+        value: /var/data/licenses.sqlite
+      - key: LICENSE_CORS_ORIGINS
+        value: app://soulfire
+      - key: LICENSE_TRUST_PROXY
+        value: "false"
+      - key: LICENSE_ADMIN_TOKEN
+        generateValue: true

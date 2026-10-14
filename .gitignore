@@ -30,3 +30,11 @@ repo/
 .tanstack/
 dist-electron/
 release-artifacts/
+public/devplus-source.zip
+.env
+.env.*
+!license-server/.env.example
+license-server/data/*.sqlite
+license-server/data/*.sqlite-shm
+license-server/data/*.sqlite-wal
+supabase/.temp/

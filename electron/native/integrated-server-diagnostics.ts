@@ -19,7 +19,7 @@ export async function validateJcmd(executable: string): Promise<void> {
     path.basename(executable).toLowerCase() !==
     (process.platform === "win32" ? "jcmd.exe" : "jcmd")
   ) {
-    throw new Error("Choose the jcmd executable from a JDK 25 bin directory.");
+    throw new Error("Escolha o executável jcmd no diretório bin de um JDK 25.");
   }
   await access(executable, constants.X_OK);
   const result = await executeFile(executable, ["-J-version"], {
@@ -89,7 +89,7 @@ export async function captureIntegratedThreadDump(
 ): Promise<string> {
   const child = state.child;
   if (!child?.pid || child.exitCode !== null || child.signalCode !== null) {
-    throw new Error("The integrated Java process is not running.");
+    throw new Error("O processo Java integrado não está em execução.");
   }
   await getIntegratedDiagnostics(app, state);
   await state.jcmdSearch;

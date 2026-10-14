@@ -1,3 +1,4 @@
+import i18n from "@/lib/i18n.ts";
 import { useSelector } from "@tanstack/react-store";
 import { ChevronRight, Home } from "lucide-react";
 import { useTranslation } from "react-i18next";
@@ -53,7 +54,7 @@ export function GroupBreadcrumb() {
         title={t("scripts.editor.group.returnToRoot")}
       >
         <Home className="h-3 w-3" />
-        <span>Root</span>
+        <span>{i18n.t("common:customUi.root")}</span>
       </button>
 
       {/* Path items */}
@@ -77,11 +78,11 @@ export function GroupBreadcrumb() {
 
       {/* Keyboard hint */}
       <span className="ml-2 inline-flex items-center gap-1 text-xs text-muted-foreground">
-        Press
+        {i18n.t("common:customUi.extraPress")}
         <KbdGroup>
           <Kbd>Tab</Kbd>
         </KbdGroup>
-        to exit
+        {i18n.t("common:customUi.extratoexit")}
       </span>
     </div>
   );

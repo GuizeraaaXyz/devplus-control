@@ -1,3 +1,4 @@
+import i18n from "@/lib/i18n.ts";
 import { useSelector } from "@tanstack/react-store";
 import {
   Background,
@@ -878,7 +879,7 @@ export function ScriptEditor() {
             style={{ overflow: "visible" }}
             aria-hidden="true"
           >
-            <title>Link cutting line</title>
+            <title>{i18n.t("common:customUi.linkCuttingLine")}</title>
             <line
               x1={
                 reactFlowInstance.flowToScreenPosition(linkCutting.startPoint)

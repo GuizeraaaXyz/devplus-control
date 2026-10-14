@@ -1,4 +1,5 @@
 "use client";
+import i18n from "@/lib/i18n.ts";
 
 import type { Column, RowData } from "@tanstack/react-table";
 import { PlusCircle, XCircle } from "lucide-react";
@@ -186,7 +187,7 @@ export function DataTableSliderFilter<TData extends RowData>({
           <div className="flex items-center gap-4">
             <Field className="gap-2">
               <FieldLabel htmlFor={`${id}-from`} className="text-xs">
-                From
+                {i18n.t("common:customUi.jsxFrom")}
               </FieldLabel>
               <div className="relative">
                 <Input
@@ -212,7 +213,7 @@ export function DataTableSliderFilter<TData extends RowData>({
             </Field>
             <Field className="gap-2">
               <FieldLabel htmlFor={`${id}-to`} className="text-xs">
-                To
+                {i18n.t("common:customUi.jsxTo")}
               </FieldLabel>
               <div className="relative">
                 <Input
@@ -239,7 +240,8 @@ export function DataTableSliderFilter<TData extends RowData>({
           </div>
           <Field className="gap-2">
             <FieldLabel htmlFor={`${id}-slider`} className="sr-only">
-              {title} slider
+              {title}
+              {i18n.t("common:customUi.jsxslider")}
             </FieldLabel>
             <Slider
               id={`${id}-slider`}
@@ -257,7 +259,7 @@ export function DataTableSliderFilter<TData extends RowData>({
           size="sm"
           onClick={onReset}
         >
-          Clear
+          {i18n.t("common:customUi.jsxClear")}
         </Button>
       </PopoverContent>
     </Popover>

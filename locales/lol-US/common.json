@@ -28,8 +28,8 @@
   },
   "dialog": {
     "about": {
-      "title": "Who SoulFire",
-      "description": "I zee vawiant {{version}} of SoulFire cwient.",
+      "title": "Dev+ Control",
+      "description": "I zee vawiant {{version}} of Dev+ Control cwient. — Powered by Dogcode_. SoulFire (AGPL-3.0).",
       "type": "Tyep",
       "value": "Value",
       "fields": {
@@ -44,7 +44,11 @@
         "environment": "Environment",
         "browser": "Browsr"
       },
-      "close": "Cloes"
+      "close": "Cloes",
+      "originalSource": "Original source and credits",
+      "modifiedSource": "Source for this distribution",
+      "license": "AGPL-3.0 license",
+      "unknown": "Unknown"
     },
     "support": {
       "title": "Halp SoulFire plz",

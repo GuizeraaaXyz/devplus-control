@@ -28,8 +28,8 @@
   },
   "dialog": {
     "about": {
-      "title": "关于 SoulFire",
-      "description": "正在运行 {{version}} 版本的 SoulFire 客户端",
+      "title": "Dev+ Control",
+      "description": "正在运行 {{version}} 版本的 Dev+ Control 客户端 — Powered by Dogcode_. SoulFire (AGPL-3.0).",
       "type": "类型",
       "value": "值",
       "fields": {
@@ -44,7 +44,11 @@
         "environment": "环境",
         "browser": "浏览器"
       },
-      "close": "关闭"
+      "close": "关闭",
+      "originalSource": "Original source and credits",
+      "modifiedSource": "Source for this distribution",
+      "license": "AGPL-3.0 license",
+      "unknown": "Unknown"
     },
     "support": {
       "title": "支持 SoulFire.",

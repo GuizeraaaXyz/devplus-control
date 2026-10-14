@@ -1,10 +1,8 @@
-import { SiDiscord } from "@icons-pack/react-simple-icons";
 import { useCanGoBack, useRouter } from "@tanstack/react-router";
 import {
   BookOpenTextIcon,
   ChevronLeftIcon,
   ChevronRightIcon,
-  HeartIcon,
   MinusIcon,
   SquareIcon,
   XIcon,
@@ -47,16 +45,6 @@ function TitlebarExternalLinks() {
       title: t("sidebar.documentation"),
       url: "https://soulfiremc.com/docs?utm_source=soulfire-client&utm_medium=app&utm_campaign=titlebar-docs",
       icon: BookOpenTextIcon,
-    },
-    {
-      title: t("sidebar.supportSoulFire"),
-      url: "https://soulfiremc.com/pricing?utm_source=soulfire-client&utm_medium=app&utm_campaign=titlebar-support",
-      icon: HeartIcon,
-    },
-    {
-      title: t("sidebar.discord"),
-      url: "https://soulfiremc.com/discord?utm_source=soulfire-client&utm_medium=app&utm_campaign=titlebar-discord",
-      icon: SiDiscord,
     },
   ];
 

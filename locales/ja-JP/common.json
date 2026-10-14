@@ -28,8 +28,8 @@
   },
   "dialog": {
     "about": {
-      "title": "SoulFireについて",
-      "description": "SoulFireクライアントのバージョン{{version}}を実行中です。",
+      "title": "Dev+ Control",
+      "description": "Dev+ Controlクライアントのバージョン{{version}}を実行中です。 — Powered by Dogcode_. SoulFire (AGPL-3.0).",
       "type": "種類",
       "value": "値",
       "fields": {
@@ -44,7 +44,11 @@
         "environment": "環境",
         "browser": "ブラウザ"
       },
-      "close": "閉じる"
+      "close": "閉じる",
+      "originalSource": "Original source and credits",
+      "modifiedSource": "Source for this distribution",
+      "license": "AGPL-3.0 license",
+      "unknown": "Unknown"
     },
     "support": {
       "title": "SoulFireを支援する",

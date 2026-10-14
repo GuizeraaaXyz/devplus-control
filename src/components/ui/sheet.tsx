@@ -1,3 +1,4 @@
+import i18n from "@/lib/i18n.ts";
 import { Dialog as SheetPrimitive } from "@base-ui/react/dialog";
 import { XIcon } from "lucide-react";
 import * as React from "react";
@@ -68,7 +69,7 @@ function SheetContent({
             }
           >
             <XIcon />
-            <span className="sr-only">Close</span>
+            <span className="sr-only">{i18n.t("common:customUi.close")}</span>
           </SheetPrimitive.Close>
         )}
       </SheetPrimitive.Popup>

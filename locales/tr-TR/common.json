@@ -28,8 +28,8 @@
   },
   "dialog": {
     "about": {
-      "title": "SoulFire Hakkında",
-      "description": "SoulFire clientinin {{version}} sürümünü kullanıyorsunuz.",
+      "title": "Dev+ Control",
+      "description": "Dev+ Control clientinin {{version}} sürümünü kullanıyorsunuz. — Powered by Dogcode_. SoulFire (AGPL-3.0).",
       "type": "Tip",
       "value": "Değer",
       "fields": {
@@ -44,7 +44,11 @@
         "environment": "Ortam/çevre",
         "browser": "Tarayıcı"
       },
-      "close": "Kapat"
+      "close": "Kapat",
+      "originalSource": "Original source and credits",
+      "modifiedSource": "Source for this distribution",
+      "license": "AGPL-3.0 license",
+      "unknown": "Unknown"
     },
     "support": {
       "title": "SoulFire'ı Destekle",

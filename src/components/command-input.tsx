@@ -1,3 +1,4 @@
+import i18n from "@/lib/i18n.ts";
 import { createClient } from "@connectrpc/connect";
 import {
   type KeyboardEventHandler,
@@ -688,13 +689,17 @@ export default function CommandInput(props: { scope: CommandScope }) {
               {inputValue === "" ? (
                 <>
                   {t("commandInput.emptySuggestionsPrefix", {
-                    defaultValue: "Type to request suggestions or press",
+                    defaultValue: i18n.t(
+                      "common:customUi.typeToRequestSuggestionsOrPress",
+                    ),
                   })}{" "}
                   <Kbd>Tab</Kbd>.
                 </>
               ) : (
                 t("commandInput.noSuggestions", {
-                  defaultValue: "No suggestions available.",
+                  defaultValue: i18n.t(
+                    "common:customUi.noSuggestionsAvailable",
+                  ),
                 })
               )}
             </div>

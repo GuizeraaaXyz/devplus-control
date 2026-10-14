@@ -3,6 +3,7 @@ import { XIcon } from "lucide-react";
 import { createContext, type ReactNode, use, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { SystemInfoContext } from "@/components/providers/system-info-context.tsx";
+import { ExternalLink } from "@/components/external-link.tsx";
 import { Button } from "@/components/ui/button.tsx";
 import type { ClientDataResponse } from "@/generated/soulfire/client_pb";
 import {
@@ -73,6 +74,17 @@ function AboutDialog({
           </CredenzaDescription>
         </CredenzaHeader>
         <CredenzaBody>
+          <div className="mb-4 flex flex-col gap-2 text-sm">
+            <ExternalLink href="https://github.com/soulfiremc-com/SoulFireClient">
+              {t("dialog.about.originalSource")}
+            </ExternalLink>
+            <a href="/devplus-source.zip" download>
+              {t("dialog.about.modifiedSource")}
+            </a>
+            <a href="/LICENSE.txt" download>
+              {t("dialog.about.license")}
+            </a>
+          </div>
           <Table>
             <TableHeader>
               <TableRow>
@@ -138,7 +150,7 @@ function AboutDialog({
                   <TableRow>
                     <TableCell>{t("dialog.about.fields.locale")}</TableCell>
                     <TableCell className="select-text">
-                      {systemInfo.osLocale ?? "Unknown"}
+                      {systemInfo.osLocale ?? t("dialog.about.unknown")}
                     </TableCell>
                   </TableRow>
 

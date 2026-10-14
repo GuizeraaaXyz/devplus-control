@@ -1,11 +1,11 @@
 {
   "header": {
     "image": {
-      "alt": "Soul Fire ikonu"
+      "alt": "Dev+ Control"
     },
-    "title": "SoulFire"
+    "title": "Dev+ Control"
   },
-  "newUser": "SoulFire'a yeni misiniz? <a>Başlangıç rehberini</a> okuyun.",
+  "newUser": "Dev+ Control'a yeni misiniz? <a>Başlangıç rehberini</a> okuyun.",
   "connect": {
     "title": "SoulFire Sunucusuna Bağlan",
     "description": "Hangi tür SoulFire sunucusuna bağlanmak istiyorsanız onu seçin.",

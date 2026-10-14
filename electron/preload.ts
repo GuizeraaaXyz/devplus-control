@@ -109,6 +109,12 @@ const desktopApi: SoulFireDesktopApi = {
     },
     run: async (options) => invoke("integrated-server:run", options),
   },
+  license: {
+    getKey: async () => invoke("license:get-key"),
+    getDeviceId: async () => invoke("license:get-device-id"),
+    saveKey: async (key) => invoke("license:save-key", key),
+    clearKey: async () => invoke("license:clear-key"),
+  },
   path: {
     appConfigDir: async () => invoke("path:app-config-dir"),
     appLocalDataDir: async () => invoke("path:app-local-data-dir"),

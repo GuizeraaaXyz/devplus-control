@@ -1,3 +1,4 @@
+import i18n from "@/lib/i18n.ts";
 import type { JsonValue } from "@bufbuild/protobuf";
 import type { Value } from "@bufbuild/protobuf/wkt";
 import type { Transport } from "@connectrpc/connect";
@@ -332,7 +333,7 @@ function BotSettingRow(props: {
             {props.row.matchesInherited && props.row.source === "bot" && (
               <span>
                 {t("account.config.matchesInheritedValue", {
-                  defaultValue: "Matches inherited value",
+                  defaultValue: i18n.t("common:customUi.matchesInheritedValue"),
                 })}
               </span>
             )}
@@ -358,10 +359,10 @@ function BotSettingRow(props: {
               <>
                 {props.row.inheritedSource === "instance"
                   ? t("account.config.instanceValue", {
-                      defaultValue: "Instance value",
+                      defaultValue: i18n.t("common:customUi.instanceValue"),
                     })
                   : t("account.config.defaultValue", {
-                      defaultValue: "Default value",
+                      defaultValue: i18n.t("common:customUi.defaultValue"),
                     })}
                 :{" "}
                 {formatSettingValue(
@@ -372,7 +373,7 @@ function BotSettingRow(props: {
             ) : props.row.source === "instance" ? (
               <>
                 {t("account.config.instanceValue", {
-                  defaultValue: "Instance value",
+                  defaultValue: i18n.t("common:customUi.instanceValue"),
                 })}
                 :{" "}
                 {formatSettingValue(
@@ -383,7 +384,7 @@ function BotSettingRow(props: {
             ) : (
               <>
                 {t("account.config.defaultValue", {
-                  defaultValue: "Default value",
+                  defaultValue: i18n.t("common:customUi.defaultValue"),
                 })}
                 :{" "}
                 {formatSettingValue(
@@ -398,7 +399,9 @@ function BotSettingRow(props: {
               {props.row.matchesInherited && props.row.source === "bot" && (
                 <span>
                   {t("account.config.matchesInheritedValue", {
-                    defaultValue: "Matches inherited value",
+                    defaultValue: i18n.t(
+                      "common:customUi.matchesInheritedValue",
+                    ),
                   })}
                 </span>
               )}
@@ -418,7 +421,7 @@ function BotSettingRow(props: {
           >
             <RotateCcwIcon className="size-3.5" />
             {t("account.config.resetOverride", {
-              defaultValue: "Reset override",
+              defaultValue: i18n.t("common:customUi.resetOverride"),
             })}
           </Button>
         )}
@@ -730,7 +733,7 @@ function DialogContentInner({
               </InputGroupAddon>
               <InputGroupInput
                 placeholder={t("account.config.search", {
-                  defaultValue: "Search settings",
+                  defaultValue: i18n.t("common:customUi.searchSettings"),
                 })}
                 value={searchQuery}
                 onChange={(event) => setSearchQuery(event.currentTarget.value)}
@@ -752,7 +755,7 @@ function DialogContentInner({
           >
             <ToggleGroupItem value="overrides">
               {t("account.config.overrides", {
-                defaultValue: "Overrides",
+                defaultValue: i18n.t("common:customUi.overrides"),
               })}{" "}
               <span className="tabular-nums text-xs text-muted-foreground">
                 {resolvedSettings.filter((row) => row.source === "bot").length}
@@ -760,7 +763,7 @@ function DialogContentInner({
             </ToggleGroupItem>
             <ToggleGroupItem value="all">
               {t("account.config.allSettings", {
-                defaultValue: "All settings",
+                defaultValue: i18n.t("common:customUi.allSettings"),
               })}{" "}
               <span className="tabular-nums text-xs text-muted-foreground">
                 {resolvedSettings.length}
@@ -793,21 +796,27 @@ function DialogContentInner({
                 <EmptyTitle className="text-sm">
                   {searchQuery.trim().length > 0
                     ? t("account.config.noOverridesMatching", {
-                        defaultValue: "No overrides match this search.",
+                        defaultValue: i18n.t(
+                          "common:customUi.noOverridesMatchThisSearch",
+                        ),
                       })
                     : t("account.config.noOverrides", {
-                        defaultValue:
-                          "This bot does not have any explicit overrides yet.",
+                        defaultValue: i18n.t(
+                          "common:customUi.thisBotDoesNotHaveAnyExplicitOverridesYet",
+                        ),
                       })}
                 </EmptyTitle>
                 <EmptyDescription>
                   {searchQuery.trim().length > 0
                     ? t("account.config.tryDifferentSearch", {
-                        defaultValue: "Try a different search term.",
+                        defaultValue: i18n.t(
+                          "common:customUi.tryADifferentSearchTerm",
+                        ),
                       })
                     : t("account.config.noOverridesHelp", {
-                        defaultValue:
-                          "Open All settings to inherit values or create the first bot-specific override.",
+                        defaultValue: i18n.t(
+                          "common:customUi.openAllSettingsToInheritValuesOrCreateTheFirstBotspecificOverride",
+                        ),
                       })}
                 </EmptyDescription>
               </EmptyHeader>
@@ -821,7 +830,7 @@ function DialogContentInner({
                     }}
                   >
                     {t("account.config.openAllSettings", {
-                      defaultValue: "Open all settings",
+                      defaultValue: i18n.t("common:customUi.openAllSettings"),
                     })}
                   </Button>
                 </EmptyContent>
@@ -872,13 +881,17 @@ function DialogContentInner({
                 >
                   <SelectTrigger
                     aria-label={t("account.config.selectPage", {
-                      defaultValue: "Select a settings page",
+                      defaultValue: i18n.t(
+                        "common:customUi.selectASettingsPage",
+                      ),
                     })}
                     className="w-full"
                   >
                     <SelectValue
                       placeholder={t("account.config.selectPage", {
-                        defaultValue: "Select a settings page",
+                        defaultValue: i18n.t(
+                          "common:customUi.selectASettingsPage",
+                        ),
                       })}
                     />
                   </SelectTrigger>
@@ -886,7 +899,7 @@ function DialogContentInner({
                     <SelectGroup>
                       <SelectLabel>
                         {t("account.config.selectPage", {
-                          defaultValue: "Settings pages",
+                          defaultValue: i18n.t("common:customUi.settingsPages"),
                         })}
                       </SelectLabel>
                       {pageItems.map((page) => (
@@ -951,14 +964,18 @@ function DialogContentInner({
                     <EmptyTitle className="text-sm">
                       {searchQuery.trim().length > 0
                         ? t("account.config.noSearchResults", {
-                            defaultValue: "No settings match this search.",
+                            defaultValue: i18n.t(
+                              "common:customUi.noSettingsMatchThisSearch",
+                            ),
                           })
                         : t("account.config.noSettings")}
                     </EmptyTitle>
                     {searchQuery.trim().length > 0 ? (
                       <EmptyDescription>
                         {t("account.config.tryDifferentSearch", {
-                          defaultValue: "Try a different search term.",
+                          defaultValue: i18n.t(
+                            "common:customUi.tryADifferentSearchTerm",
+                          ),
                         })}
                       </EmptyDescription>
                     ) : null}

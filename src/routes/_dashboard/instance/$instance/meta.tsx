@@ -515,7 +515,7 @@ function InstanceMetadataEditor({ instanceId }: { instanceId: string }) {
             <FieldSet className="gap-3">
               <FieldLegend variant="label">
                 {t("instanceMetadata.addEntryLegend", {
-                  defaultValue: "Add metadata entry",
+                  defaultValue: i18n.t("common:customUi.addMetadataEntry"),
                 })}
               </FieldLegend>
               <FieldGroup className="gap-3 md:grid md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)_minmax(0,1fr)_auto] md:items-start">
@@ -528,7 +528,7 @@ function InstanceMetadataEditor({ instanceId }: { instanceId: string }) {
                       <Field data-invalid={isInvalid} className="gap-2">
                         <FieldLabel htmlFor={field.name}>
                           {t("instanceMetadata.namespaceLabel", {
-                            defaultValue: "Namespace",
+                            defaultValue: i18n.t("common:customUi.namespace"),
                           })}
                         </FieldLabel>
                         <Input
@@ -560,7 +560,7 @@ function InstanceMetadataEditor({ instanceId }: { instanceId: string }) {
                       <Field data-invalid={isInvalid} className="gap-2">
                         <FieldLabel htmlFor={field.name}>
                           {t("instanceMetadata.keyLabel", {
-                            defaultValue: "Key",
+                            defaultValue: i18n.t("common:customUi.key"),
                           })}
                         </FieldLabel>
                         <Input
@@ -590,7 +590,7 @@ function InstanceMetadataEditor({ instanceId }: { instanceId: string }) {
                       <Field data-invalid={isInvalid} className="gap-2">
                         <FieldLabel htmlFor={field.name}>
                           {t("instanceMetadata.valueLabel", {
-                            defaultValue: "Value",
+                            defaultValue: i18n.t("common:customUi.value"),
                           })}
                         </FieldLabel>
                         <Input
@@ -620,7 +620,7 @@ function InstanceMetadataEditor({ instanceId }: { instanceId: string }) {
                   >
                     <PlusIcon data-icon="inline-start" />
                     {t("instanceMetadata.addEntryButton", {
-                      defaultValue: "Add entry",
+                      defaultValue: i18n.t("common:customUi.addEntry"),
                     })}
                   </Button>
                 </div>
@@ -685,14 +685,14 @@ function MetadataEntryRow({
     <FieldSet className="gap-3 rounded-lg border p-3">
       <FieldLegend className="sr-only">
         {t("instanceMetadata.entryLegend", {
-          defaultValue: "Metadata entry",
+          defaultValue: i18n.t("common:customUi.metadataEntry"),
         })}
       </FieldLegend>
       <FieldGroup className="gap-3 md:grid md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)_minmax(0,1fr)_auto] md:items-start">
         <Field className="gap-2">
           <FieldLabel htmlFor={`${entry.id}-namespace`}>
             {t("instanceMetadata.namespaceLabel", {
-              defaultValue: "Namespace",
+              defaultValue: i18n.t("common:customUi.namespace"),
             })}
           </FieldLabel>
           <Input
@@ -711,7 +711,7 @@ function MetadataEntryRow({
         <Field className="gap-2">
           <FieldLabel htmlFor={`${entry.id}-key`}>
             {t("instanceMetadata.keyLabel", {
-              defaultValue: "Key",
+              defaultValue: i18n.t("common:customUi.key"),
             })}
           </FieldLabel>
           <Input
@@ -730,7 +730,7 @@ function MetadataEntryRow({
         <Field data-invalid={!isValidJson} className="gap-2">
           <FieldLabel htmlFor={`${entry.id}-value`}>
             {t("instanceMetadata.valueLabel", {
-              defaultValue: "Value",
+              defaultValue: i18n.t("common:customUi.value"),
             })}
           </FieldLabel>
           <Input
@@ -755,7 +755,7 @@ function MetadataEntryRow({
           <Button variant="outline" onClick={onDelete} disabled={isDeleting}>
             <TrashIcon data-icon="inline-start" />
             {t("instanceMetadata.removeEntryButton", {
-              defaultValue: "Remove",
+              defaultValue: i18n.t("common:customUi.remove"),
             })}
           </Button>
         </div>

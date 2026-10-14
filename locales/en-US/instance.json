@@ -725,7 +725,12 @@
         "searchPlaceholder": "Search nodes..."
       },
       "diff": {
-        "tooltip": "Review changes"
+        "tooltip": "Review changes",
+        "addedNodes": "+ {{count}} node(s) added",
+        "removedNodes": "- {{count}} node(s) removed",
+        "modifiedNodes": "~ {{count}} node(s) modified",
+        "addedEdges": "+ {{count}} edge(s) added",
+        "removedEdges": "- {{count}} edge(s) removed"
       },
       "dryRun": {
         "tooltip": "Dry Run",

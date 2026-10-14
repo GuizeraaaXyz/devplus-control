@@ -1,24 +1,24 @@
 {
-  "locale": "Linguagem",
+  "locale": "Idioma",
   "close": "Fechar",
   "cancel": "Cancelar",
   "save": "Salvar",
   "saving": "Salvando...",
   "error": {
-    "noAddressOrToken": "Nenhum endereço de servidor ou token encontrado",
+    "noAddressOrToken": "Nenhum endereço do servidor ou token de acesso encontrado.",
     "page": {
       "title": "Erro",
-      "description": "A página não foi carregada. Abra o console para mais informações.",
+      "description": "Não foi possível carregar a página. Abra o console para mais informações.",
       "logOut": "Sair",
       "reloadPage": "Recarregar página",
       "showDetails": "Mostrar detalhes"
     },
-    "connectionFailed": "A conexão com o servidor SoulFire falhou."
+    "connectionFailed": "Não foi possível conectar ao servidor SoulFire."
   },
   "notFound": {
     "page": {
       "title": "Não encontrado",
-      "description": "Não existe uma página neste endereço",
+      "description": "Não existe nenhuma página neste endereço.",
       "logOut": "Sair",
       "reloadPage": "Recarregar página"
     }
@@ -28,42 +28,46 @@
   },
   "dialog": {
     "about": {
-      "title": "Sobre SoulFire",
-      "description": "Você está executando a versão {{version}} do cliente SoulFire.",
+      "title": "Dev+ Control",
+      "description": "<Dev+/> - Powered by Dogcode_. Cliente Minecraft personalizado para gerenciamento de bots, instâncias e automações. Versão {{version}}. Interface personalizada por Dogcode_. Baseado no projeto open source SoulFire, licenciado sob AGPL-3.0.",
       "type": "Tipo",
       "value": "Valor",
       "fields": {
         "serverVersion": "Versão do servidor",
         "serverCommit": "Commit do servidor",
-        "serverBranch": "Branch do servidor",
+        "serverBranch": "Ramificação do servidor",
         "minecraftVersion": "Versão do Minecraft",
-        "operatingSystem": "Sistema Operacional",
+        "operatingSystem": "Sistema operacional",
         "platform": "Plataforma",
-        "locale": "Região",
+        "locale": "Idioma e região",
         "architecture": "Arquitetura",
         "environment": "Ambiente",
         "browser": "Navegador"
       },
-      "close": "Fechar"
+      "close": "Fechar",
+      "originalSource": "Código-fonte original e créditos",
+      "modifiedSource": "Código-fonte desta distribuição",
+      "license": "Licença AGPL-3.0",
+      "unknown": "Desconhecido"
     },
     "support": {
-      "title": "Apoie o SoulFire",
-      "description": "O SoulFire é gratuito e de código aberto, criado com carinho pela comunidade.",
-      "body": "Se o SoulFire foi útil para você, considere apoiar o projeto. Sua contribuição ajuda a cobrir os custos dos servidores, financiar o desenvolvimento e manter o SoulFire gratuito para todos.",
-      "dismiss": "Talvez mais tarde",
-      "action": "Apoie o SoulFire"
+      "title": "Apoie o projeto original SoulFire",
+      "description": "O SoulFire é um projeto de código aberto mantido por sua comunidade.",
+      "body": "Se quiser apoiar o desenvolvimento do SoulFire, visite os canais oficiais do projeto. O <Dev+/> é uma personalização independente da interface.",
+      "dismiss": "Agora não",
+      "action": "Apoiar o SoulFire"
     },
     "createInstance": {
       "title": "Criar uma nova instância",
-      "description": "Dê à instância um nome que você possa reconhecer, como \"Meu Bot de Minecraft\".",
+      "description": "Dê à instância um nome fácil de identificar, como \"Meu bot de Minecraft\".",
       "form": {
         "friendlyName": {
-          "label": "Nome amigável",
+          "label": "Nome da instância",
           "placeholder": "Meu Bot de Minecraft",
-          "description": "O nome que quer dar para esta instância.",
-          "min": "O nome amigável deve ter pelo menos 3 caracteres.",
-          "max": "O nome amigável deve ter no máximo 32 caracteres.",
-          "regex": "Nome amigável só pode conter letras, números e espaços"
+          "description": "Nome que será exibido para esta instância.",
+          "min": "O nome deve ter pelo menos 3 caracteres.",
+          "max": "O nome deve ter no máximo 32 caracteres.",
+          "regex": "O nome só pode conter letras, números e espaços."
         },
         "cancel": "Cancelar",
         "create": "Criar"
@@ -76,7 +80,7 @@
     },
     "duplicateInstance": {
       "title": "Duplicar instância",
-      "description": "Crie uma nova instância usando o perfil de \"{{name}}\".",
+      "description": "Crie uma instância usando o perfil de \"{{name}}\".",
       "form": {
         "friendlyName": {
           "description": "O nome para a instância duplicada."
@@ -93,7 +97,7 @@
       "main": {
         "fromFile": "Do arquivo",
         "fromUrl": "Da URL",
-        "firstClipboardItem": "A área de transferência contém vários itens. O SoulFire usará o primeiro item.",
+        "firstClipboardItem": "A área de transferência contém vários itens. Somente o primeiro será importado.",
         "fromClipboard": "Da área de transferência",
         "textarea": {
           "placeholder": "Coloque o texto aqui...",
@@ -101,14 +105,14 @@
         }
       },
       "url": {
-        "description": "O servidor SoulFire envia uma requisição GET para este URL e importa a resposta.",
+        "description": "O servidor SoulFire faz uma requisição GET para esta URL e importa a resposta.",
         "form": {
           "url": {
             "placeholder": "Coloque a URL aqui...",
-            "empty": "Por favor, insira uma URL válida"
+            "empty": "Digite uma URL válida."
           }
         },
-        "submit": "Carregar do URL",
+        "submit": "Carregar da URL",
         "toast": {
           "loading": "Baixando dados...",
           "success": "Dados carregados!",
@@ -117,9 +121,58 @@
       }
     }
   },
+  "license": {
+    "title": "Ative sua licença Dev+",
+    "description": "Gerencie a licença comercial do Dev+ Control. A ativação depende da conexão com o serviço de licenças.",
+    "statusTitle": "Status da assinatura",
+    "deviceTitle": "Este dispositivo",
+    "deviceUnavailable": "Informações indisponíveis",
+    "status": {
+      "notChecked": "Ainda não consultado",
+      "active": "Ativa",
+      "inactive": "Inativa",
+      "expired": "Expirada",
+      "revoked": "Revogada"
+    },
+    "plan": "Plano: {{plan}}",
+    "expires": "Válida até {{date}}",
+    "deviceUsage": "Dispositivos: {{used}} de {{limit}}",
+    "formTitle": "Ativação da licença",
+    "formDescription": "Informe a chave fornecida para sua assinatura Dev+.",
+    "keyLabel": "Chave de licença",
+    "keyPlaceholder": "Cole sua chave de licença",
+    "keyHelp": "A licença é validada pelo serviço online; no app desktop, a chave fica protegida pelo armazenamento seguro do sistema.",
+    "activate": "Ativar licença",
+    "activating": "Ativando...",
+    "checkStatus": "Consultar status",
+    "checking": "Consultando...",
+    "errorTitle": "Não foi possível concluir a solicitação",
+    "responseTitle": "Resposta do serviço de licenças",
+    "response": {
+      "active": "O serviço confirmou que a licença está ativa.",
+      "inactive": "O serviço informou que a licença está inativa.",
+      "expired": "O serviço informou que a licença expirou.",
+      "revoked": "O serviço informou que a licença foi revogada."
+    },
+    "privacyNote": "No app desktop, a licença é consultada online ao iniciar. A chave não é salva em texto simples.",
+    "errors": {
+      "not-configured": "A API de licenças ainda não está configurada neste build.",
+      "storage": "O armazenamento seguro do sistema não está disponível para guardar a licença.",
+      "connection": "Não foi possível conectar à API de licenças.",
+      "timeout": "A API de licenças demorou demais para responder.",
+      "invalid-license": "A chave de licença é inválida ou não foi encontrada.",
+      "device-limit": "O limite de dispositivos desta licença foi atingido.",
+      "rate-limit": "Muitas tentativas. Aguarde um pouco antes de tentar novamente.",
+      "unauthorized": "A solicitação não foi autorizada pelo serviço de licenças.",
+      "server": "O serviço de licenças está indisponível no momento.",
+      "http": "A API de licenças recusou a solicitação.",
+      "invalid-response": "A API de licenças retornou uma resposta inválida.",
+      "unexpected": "Ocorreu um erro inesperado ao consultar a licença."
+    }
+  },
   "commandInput": {
-    "placeholder": "Digite o comando (digite 'help' para a lista)",
-    "emptySuggestions": "Digite para solicitar sugestões ou pressione Tab.",
+    "placeholder": "Digite um comando (use \"help\" para ver a lista)",
+    "emptySuggestions": "Digite para buscar sugestões ou pressione Tab.",
     "noSuggestions": "Nenhuma sugestão disponível."
   },
   "controls": {
@@ -128,41 +181,41 @@
     "startAll": "Iniciar todos",
     "stopAll": "Parar todos",
     "restart": "Reiniciar",
-    "startCount": "Número de bots para iniciar",
+    "startCount": "Quantidade de bots para iniciar",
     "startToast": {
       "loading": "Iniciando bots...",
-      "success": "Estado do bot atualizado",
+      "success": "Estado dos bots atualizado.",
       "error": "Falha ao iniciar bots"
     },
     "restartToast": {
       "loading": "Reiniciando bots...",
-      "success": "Bots estão reconectando",
+      "success": "Os bots estão se reconectando.",
       "error": "Falha ao reiniciar bots"
     },
     "stopToast": {
       "loading": "Parando bots...",
-      "success": "Bots estão parando",
+      "success": "Os bots estão parando.",
       "error": "Falha ao parar bots"
     },
     "permissionDenied": "Você não tem permissão para iniciar ou parar bots nesta instância.",
     "serverUpdateRequired": "O servidor não informou permissões de controle de bots. Verifique se as versões do seu servidor e do cliente correspondem.",
     "startBots": "Iniciar bots",
-    "moreActions": "Mais ações de bot",
+    "moreActions": "Mais ações para bots",
     "generateFirst": "Crie contas para iniciar seus primeiros bots.",
     "startCountHelp": "Inicia bots adicionais. Bots em execução permanecem conectados.",
     "startAllCount": "Iniciar todos os {{count}}",
-    "validCount": "",
-    "positiveCount": "",
+    "validCount": "Digite um número inteiro entre 1 e {{count}}.",
+    "positiveCount": "A quantidade deve ser maior que zero.",
     "availableCount_one": "{{count}} bot parado disponível.",
     "availableCount_other": "{{count}} bots parados disponíveis.",
     "startSelected_one": "Iniciar {{count}} bot",
     "startSelected_other": "Iniciar {{count}} bots",
     "stopCount_one": "Parar {{count}} bot",
     "stopCount_other": "Parar {{count}} bots",
-    "restartCount_one": "",
-    "restartCount_other": ""
+    "restartCount_one": "Reiniciar {{count}} bot",
+    "restartCount_other": "Reiniciar {{count}} bots"
   },
-  "botFleetSummary": "{{online}} online · {{desired}} desejado · {{total}} total",
+  "botFleetSummary": "{{online}} online · {{desired}} desejados · {{total}} no total",
   "icon": {
     "invalidName": "Nome de ícone inválido: {{name}}"
   },
@@ -173,10 +226,10 @@
     "currentPage": "Página {{page}} de {{total}}",
     "goFirst": "Ir para a primeira página",
     "goPrevious": "Ir para a página anterior",
-    "goNext": "Ir para a proxima página",
+    "goNext": "Ir para a próxima página",
     "goLast": "Ir para a última página",
     "selectAll": "Selecionar todos",
-    "selectRow": "Selecionar Linha",
+    "selectRow": "Selecionar linha",
     "selected": "{{count}} selecionado(s)",
     "clearSelection": "Limpar seleção",
     "escape": "Esc",
@@ -215,8 +268,8 @@
     "addSort": "Adicionar ordenação",
     "resetSorting": "Redefinir ordenação",
     "columnHeader": {
-      "asc": "Asc",
-      "desc": "Desc",
+      "asc": "Crescente",
+      "desc": "Decrescente",
       "reset": "Redefinir",
       "hide": "Ocultar"
     },
@@ -241,14 +294,14 @@
       "notInArray": "Não tem nenhum de"
     },
     "sortOrders": {
-      "asc": "Asc",
-      "desc": "Desc"
+      "asc": "Crescente",
+      "desc": "Decrescente"
     }
   },
   "pluginCard": {
     "version": "Versão {{version}}",
     "author": "Autor: {{author}}",
-    "license": "Licença: {license}",
+    "license": "Licença: {{license}}",
     "website": "Site"
   },
   "settingsPage": {
@@ -268,10 +321,10 @@
   },
   "terminal": {
     "noLogs": "Ainda não há logs. Execute um comando para gerar saída do log.",
-    "demo-1": "Bem-vindo ao modo de demonstração! 🧪",
-    "demo-2": "Esta é uma instância somente leitura de SoulFire",
-    "demo-3": "Confira todos os menus e recursos antes de decidir instalar o SoulFire :D",
-    "demo-4": "Sinta-se à vontade para entrar no nosso servidor do Discord se quiser falar conosco: https://soulfiremc.com/discord"
+    "demo-1": "Bem-vindo à demonstração do <Dev+/>! 🧪",
+    "demo-2": "Esta demonstração está disponível somente para leitura.",
+    "demo-3": "Explore os menus e conheça os recursos do painel.",
+    "demo-4": "Obrigado !!"
   },
   "uiBreadcrumb": {
     "more": "Mais"
@@ -328,17 +381,17 @@
       "error": "Falha ao excluir instância"
     },
     "instancesGroup": "Instâncias",
-    "createInstance": "Criar Instância",
+    "createInstance": "Criar instância",
     "loadProfileToast": {
       "loading": "Carregando perfil...",
       "success": "Perfil carregado",
       "error": "Falha ao carregar o perfil"
     },
-    "loadProfile": "Carregar Perfil",
+    "loadProfile": "Carregar perfil",
     "loadFromFile": "Carregar do arquivo",
     "profileSaved": "Perfil salvo",
-    "saveProfile": "Salvar Perfil",
-    "deleteInstance": "Deletar Instancia",
+    "saveProfile": "Salvar perfil",
+    "deleteInstance": "Excluir instância",
     "controlsGroup": "Controles",
     "overview": "Visão geral",
     "terminal": "Terminal",
@@ -346,12 +399,12 @@
     "audit-log": "Registro de auditoria",
     "settingsGroup": "Configurações",
     "extensionsGroup": "Extensões",
-    "botSettings": "Configurações do Bot",
-    "accountSettings": "Configurações da Conta",
-    "metaSettings": "Configurações da Instância",
-    "proxySettings": "Configurações de Proxy",
+    "botSettings": "Configurações do bot",
+    "accountSettings": "Configurações da conta",
+    "metaSettings": "Configurações da instância",
+    "proxySettings": "Configurações de proxy",
     "aiSettings": "Configurações de IA",
-    "pathfindingSettings": "Configurações de Pathfinding",
+    "pathfindingSettings": "Configurações de navegação",
     "discoverPlugins": "Plugins",
     "instanceScripts": "Scripts"
   },
@@ -360,7 +413,7 @@
     "userGroup": "Usuário",
     "instances": "Instâncias",
     "access": "Acesso",
-    "createInstance": "Criar Instância",
+    "createInstance": "Criar instância",
     "settings": "Configurações",
     "adminGroup": "Administrador",
     "adminOverview": "Visão geral",
@@ -369,7 +422,7 @@
     "users": "Usuários",
     "adminScripts": "Scripts",
     "serverSettings": "Configurações do servidor",
-    "devSettings": "Configurações de Desenvolvedor",
+    "devSettings": "Configurações de desenvolvedor",
     "theme": {
       "title": "Tema",
       "system": "Sistema",
@@ -381,7 +434,7 @@
     },
     "configDir": "Diretório de configuração",
     "dataDir": "Diretório de dados",
-    "supportSoulFire": "Apoie o SoulFire",
+    "supportSoulFire": "Apoie o SoulFire (projeto original)",
     "about": "Sobre",
     "logOut": "Sair",
     "logOutToast": {
@@ -391,11 +444,11 @@
     },
     "exit": "Sair",
     "stopImpersonating": "Parar de personificar",
-    "helpTranslate": "Ajude a traduzir o SoulFire"
+    "helpTranslate": "Contribuir com as traduções do SoulFire"
   },
   "sidebar": {
     "documentation": "Documentação",
-    "supportSoulFire": "Apoie o SoulFire",
+    "supportSoulFire": "Apoie o SoulFire (projeto original)",
     "discord": "Discord"
   },
   "breadcrumbs": {
@@ -430,30 +483,30 @@
       "description": "O WebDAV fornece acesso aos arquivos de instância, scripts e outros arquivos.",
       "publicAddress": "Endereço WebDAV público",
       "personalToken": "Token pessoal WebDAV",
-      "securityWarning": "Mantenha seu token pessoal do WebDAV em segredo. Ele concede acesso aos seus arquivos. Use o token como sua senha do WebDAV. Você não precisa de um nome de usuário. Se o seu aplicativo exigir um, digite qualquer valor, como \"soulfire\".",
-      "addressDescription": "Use este endereço para acessar seus arquivos. Alguns clientes exigem dav:// ou davs:// em vez de http:// ou https://."
+      "securityWarning": "Mantenha seu token pessoal do WebDAV em segredo. Ele permite acessar seus arquivos. Use o token como senha do WebDAV. Não é necessário informar um nome de usuário; se o aplicativo exigir, digite qualquer valor, como \"soulfire\".",
+      "addressDescription": "Use este endereço para acessar seus arquivos. Alguns aplicativos exigem dav:// ou davs:// em vez de http:// ou https://."
     },
     "api": {
       "title": "Acesso via API",
-      "description": "A API HTTP gRPC do SoulFire gerencia instâncias por meio de requisições web.",
+      "description": "A API HTTP gRPC do SoulFire permite gerenciar instâncias por meio de requisições web.",
       "publicAddress": "Endereço público da API",
       "personalToken": "Token pessoal da API",
       "securityWarning": "Mantenha seu token pessoal da API em segredo. Ele concede acesso à API.",
       "addressDescription": "Use este endereço para acessar a API."
     },
     "token": {
-      "generate": "Gerar Token",
-      "placeholder": "Clique em 'Gerar Token' abaixo",
+      "generate": "Gerar token",
+      "placeholder": "Clique em \"Gerar token\" abaixo",
       "generating": "Gerando token...",
       "success": "Token gerado com sucesso",
       "error": "Falha ao gerar token",
-      "copy": "Copiar Token"
+      "copy": "Copiar token"
     },
     "address": {
-      "copy": "Copiar Endereço"
+      "copy": "Copiar endereço"
     },
     "documentation": "Documentação",
-    "howToConnect": "Como conectar"
+    "howToConnect": "Como se conectar"
   },
   "uploadToMcLogs": "Enviar para mclo.gs",
   "mcLogsUpload": {
@@ -471,7 +524,7 @@
   "userSettings": {
     "avatar": {
       "title": "Avatar",
-      "description": "Seu avatar de usuário é baseado no endereço de e-mail da sua conta. Você pode alterar o avatar do seu endereço de e-mail em",
+      "description": "O avatar é obtido do endereço de e-mail da sua conta. Você pode alterá-lo em",
       "gravatar": "Gravatar"
     },
     "username": {
@@ -514,14 +567,14 @@
           "description": "O nome do script."
         },
         "elevatedPermissions": {
-          "label": "Permissões Elevadas",
+          "label": "Permissões elevadas",
           "description": "O script é executado com permissões elevadas. Somente administradores podem habilitar esta opção."
         }
       }
     },
     "addScriptDialog": {
       "title": "Adicionar um novo script",
-      "description": "Scripts são pequenos programas que automatizam tarefas e outras ações no servidor SoulFire.",
+      "description": "Scripts são pequenos programas que automatizam tarefas e ações no servidor SoulFire.",
       "form": {
         "cancel": "Cancelar",
         "add": "Adicionar"
@@ -559,7 +612,7 @@
       "type": "Tipo",
       "scriptName": "Nome",
       "language": "Idioma",
-      "elevatedPermissions": "Permissões Elevadas",
+      "elevatedPermissions": "Permissões elevadas",
       "createdAt": "Criado",
       "actions": "Ações"
     },
@@ -568,25 +621,25 @@
   },
   "contextMenu": {
     "instance": {
-      "goToInstance": "Ir para Instância",
+      "goToInstance": "Ir para a instância",
       "duplicateInstance": "Duplicar instância",
-      "copyInstanceId": "Copiar ID da Instância",
-      "copyInstanceName": "Copiar Nome da Instância",
-      "deleteInstance": "Deletar Instancia"
+      "copyInstanceId": "Copiar ID da instância",
+      "copyInstanceName": "Copiar nome da instância",
+      "deleteInstance": "Excluir instância"
     },
     "bot": {
-      "goToBot": "Ir para o Bot",
+      "goToBot": "Ir para o bot",
       "copyUsername": "Copiar nome de usuário",
       "copyUuid": "Copiar UUID",
-      "copyCoordinates": "Copiar Coordenadas"
+      "copyCoordinates": "Copiar coordenadas"
     },
     "plugin": {
       "enable": "Ativar",
       "disable": "Desativar",
-      "openSettings": "Abrir Configurações",
-      "copyPluginName": "Copiar Nome do Plugin",
-      "copyVersion": "Copiar Versão",
-      "openWebsite": "Abrir Site"
+      "openSettings": "Abrir configurações",
+      "copyPluginName": "Copiar nome do plugin",
+      "copyVersion": "Copiar versão",
+      "openWebsite": "Abrir site"
     }
   },
   "integratedDiagnostics": {
@@ -595,7 +648,7 @@
     "openDirectory": "Abrir diretório de dados",
     "openDirectoryError": "Não foi possível abrir o diretório de dados",
     "elapsed": "{{count}}s decorridos",
-    "quiet": "Nenhuma nova saída por {{count}} segundos. O início ainda pode estar em andamento. Capture um thread dump para ver o que o Java está fazendo.",
+    "quiet": "Nenhuma nova saída há {{count}} segundos. A inicialização ainda pode estar em andamento. Capture um despejo de threads para investigar.",
     "status": {
       "idle": "Não iniciado",
       "preparing": "Preparando arquivos Java e do servidor",
@@ -623,7 +676,222 @@
     "jcmdHelp": "Thread dumps precisam do jcmd do JDK 25. O Java runtime fornecido não o inclui. Instale um JDK 25 e escolha o jcmd (jcmd.exe no Windows) no diretório bin.",
     "openDump": "Abrir thread dump",
     "filter": "Filtrar saída do processo",
-    "truncated": "{{count}} linhas de logs antigas foram omitidas. Os logs completos do servidor permanecem no diretório de dados.",
-    "privacy": "Os relatórios incluem caminhos locais e logs recentes. Revise relatórios e thread dumps para dados pessoais antes de compartilhar. Nada é enviado automaticamente."
+    "truncated": "{{count}} linhas antigas de log foram omitidas. Os logs completos permanecem no diretório de dados.",
+    "privacy": "Os relatórios incluem caminhos locais e logs recentes. Revise os arquivos antes de compartilhar, pois podem conter dados pessoais. Nada é enviado automaticamente."
+  },
+  "customUi": {
+    "typeToRequestSuggestionsOrPress": "Digite para solicitar sugestões ou pressione",
+    "noSuggestionsAvailable": "Nenhuma sugestão disponível.",
+    "noResultsFound": "Nenhum resultado encontrado.",
+    "noOptionsFound": "Nenhuma opção encontrada.",
+    "noFieldsFound": "Nenhum campo encontrado.",
+    "filterOperator": "Operador de filtro",
+    "filterValue": "Valor do filtro",
+    "joinOperator": "Operador de combinação",
+    "where": "Onde",
+    "typeToAddFilter": "Digite para adicionar um filtro...",
+    "rowsPerPage": "Linhas por página",
+    "to": "até",
+    "sortDirection": "Direção da ordenação",
+    "noColumnsFound": "Nenhuma coluna encontrada.",
+    "noResults": "Nenhum resultado.",
+    "matchesInheritedValue": "Corresponde ao valor herdado",
+    "instanceValue": "Valor da instância",
+    "defaultValue": "Valor padrão",
+    "resetOverride": "Redefinir substituição",
+    "searchSettings": "Buscar configurações",
+    "overrides": "Substituições",
+    "allSettings": "Todas as configurações",
+    "noOverridesMatchThisSearch": "Nenhuma substituição corresponde à busca.",
+    "tryADifferentSearchTerm": "Tente outro termo de busca.",
+    "openAllSettings": "Abrir todas as configurações",
+    "selectASettingsPage": "Selecione uma página de configurações",
+    "settingsPages": "Páginas de configurações",
+    "noSettingsMatchThisSearch": "Nenhuma configuração corresponde à busca.",
+    "addMetadataEntry": "Adicionar metadado",
+    "namespace": "Espaço de nomes",
+    "key": "Chave",
+    "value": "Valor",
+    "addEntry": "Adicionar entrada",
+    "metadataEntry": "Entrada de metadados",
+    "remove": "Remover",
+    "deleteInstance": "Excluir instância?",
+    "toggle": "Alternar",
+    "botPOV": "Visão do bot",
+    "botIsOffline": "O bot está desconectado",
+    "replay": "Reprodução",
+    "root": "Raiz",
+    "keyboardShortcuts": "Atalhos de teclado",
+    "selectAllNodes": "Selecionar todos os nós",
+    "deselectAll": "Desmarcar todos",
+    "quickAddMenu": "Menu de adição rápida",
+    "duplicateSelection": "Duplicar seleção",
+    "selectLinkedNodes": "Selecionar nós conectados",
+    "selectUpstreamNodes": "Selecionar nós anteriores",
+    "selectDownstreamNodes": "Selecionar nós seguintes",
+    "selectSimilarNodes": "Selecionar nós semelhantes",
+    "enterExitGroup": "Entrar/sair do grupo",
+    "toggleMuteNode": "Alternar desativação do nó",
+    "toggleCollapseNode": "Expandir/recolher nó",
+    "hideUnconnectedSockets": "Ocultar portas desconectadas",
+    "toggleNodePreview": "Alternar prévia do nó",
+    "createGroupFromSelection": "Criar grupo com a seleção",
+    "ungroupSelected": "Desagrupar seleção",
+    "createFrameFromSelection": "Criar quadro com a seleção",
+    "copySelection": "Copiar seleção",
+    "paste": "Colar",
+    "alignNodes": "Alinhar nós",
+    "distributeNodes": "Distribuir nós",
+    "cutLinks": "Cortar conexões",
+    "quickRerouteOnEdge": "Redirecionar conexão",
+    "quickAddMenuAtCursor": "Adicionar no cursor",
+    "deleteSelection": "Excluir seleção",
+    "renameSelectedNode": "Renomear nó selecionado",
+    "preview": "Prévia",
+    "in": "Entrada",
+    "out": "Saída",
+    "groupInput": "Entrada do grupo",
+    "groupOutput": "Saída do grupo",
+    "noNodesFound": "Nenhum nó encontrado",
+    "navigate": "Navegar",
+    "enterSelect": "Enter: selecionar",
+    "escClose": "Esc: fechar",
+    "unsavedChanges": "Alterações não salvas",
+    "linkCuttingLine": "Linha de corte de conexões",
+    "more": "Mais",
+    "close": "Fechar",
+    "sidebar": "Barra lateral",
+    "displaysTheMobileSidebar": "Exibe a barra lateral no celular.",
+    "toggleSidebar": "Alternar barra lateral",
+    "decorativeBackgroundPattern": "Padrão decorativo de fundo",
+    "javaArchive": "Arquivo Java",
+    "selectSoulFireServerJar": "Selecionar JAR do servidor SoulFire",
+    "importedName": "{{name}} importado",
+    "failedToImportCustomSoulFireJar": "Falha ao importar JAR personalizado do SoulFire",
+    "serverJar": "JAR do servidor",
+    "official": "Oficial",
+    "custom": "Personalizado",
+    "customServerJar": "JAR personalizado do servidor",
+    "officialSoulFireServer": "Servidor oficial SoulFire",
+    "importJar": "Importar JAR",
+    "downloadsAndVerifiesTheMatchingSoulFireRelease": "Baixa e verifica a versão correspondente do SoulFire.",
+    "botNotFound": "Bot não encontrado",
+    "noDiscoverablePluginsFound": "Nenhum plugin disponível encontrado",
+    "deleteScript": "Excluir script?",
+    "thisBotDoesNotHaveAnyExplicitOverridesYet": "Este bot ainda não tem substituições explícitas.",
+    "openAllSettingsToInheritValuesOrCreateTheFirstBotspecificOverride": "Abra Todas as configurações para herdar valores ou criar a primeira substituição específica do bot.",
+    "connecting": "Conectando…",
+    "runsAnImportedJarItIsNotVerifiedOrAutoupdated": "Executa um JAR importado, sem verificação ou atualização automática.",
+    "resetFilters": "Redefinir filtros",
+    "searchFields": "Buscar campos...",
+    "resetAllFilters": "Redefinir todos os filtros",
+    "openFilterCommandMenu": "Abrir menu de filtros",
+    "searchOptions": "Buscar opções...",
+    "goToFirstPage": "Ir para a primeira página",
+    "goToPreviousPage": "Ir para a página anterior",
+    "goToNextPage": "Ir para a próxima página",
+    "goToLastPage": "Ir para a última página",
+    "toggleColumns": "Alternar colunas",
+    "searchColumns": "Buscar colunas...",
+    "summaryOfChangesSinceLastSave": "Resumo das alterações desde o último salvamento.",
+    "selectedRows": "{{selected}} de {{total}} linha(s) selecionada(s).",
+    "pageOf": "Página {{page}} de {{total}}",
+    "extraReset": "Redefinir",
+    "extraClearfilters": "Limpar filtros",
+    "extraAddfilter": "Adicionar filtro",
+    "extraSelectjoinoperator": "Selecionar operador de combinação",
+    "extraTrue": "Verdadeiro",
+    "extraFalse": "Falso",
+    "extraAddsort": "Adicionar ordenação",
+    "extraResetsorting": "Redefinir ordenação",
+    "extraView": "Exibir",
+    "extraPlay": "Jogar",
+    "extraStop": "Parar",
+    "extraWatch": "Assistir",
+    "extraDetach": "Destacar",
+    "extraReconnect": "Reconectar",
+    "extraWatchbot": "Assistir ao bot",
+    "extraClicktoplay": "Clique para jogar",
+    "extraShowPOVwindow": "Mostrar janela do bot",
+    "extraAttachPOVwindow": "Reanexar janela do bot",
+    "extraFullscreen": "Tela cheia",
+    "extraMinecrafttextinput": "Entrada de texto do Minecraft",
+    "extraLiveMinecraftPOV": "Visão do Minecraft em tempo real",
+    "extraAllowpopupstodetachthePOVwindow": "Permita pop-ups para destacar a janela de visualização.",
+    "extraFullscreenisunavailableinthiswindow": "Tela cheia indisponível nesta janela.",
+    "extraPress": "Pressione",
+    "extratoexit": "para sair",
+    "extraNovaluereceivedyet": "Nenhum valor recebido ainda",
+    "extraNoinputsdefined": "Nenhuma entrada definida",
+    "extraNooutputsdefined": "Nenhuma saída definida",
+    "extraPitch": "Inclinação:",
+    "extraYaw": "Rotação:",
+    "jsxAsc": "Crescente",
+    "jsxDesc": "Decrescente",
+    "jsxHide": "Ocultar",
+    "jsxselected": " selecionado(s)",
+    "jsxFilter": "Filtrar",
+    "jsxFilterby": "Filtrar por \"",
+    "jsxFrom": "De",
+    "jsxTo": "Até",
+    "jsxslider": "controle deslizante",
+    "jsxClear": "Limpar",
+    "jsxSort": "Ordenar",
+    "jsxThiswillpermanentlydelete": "Isso excluirá permanentemente \"",
+    "jsxanditsdataThisactioncannotbeundone": "\" e seus dados. Esta ação não pode ser desfeita.",
+    "jsxdrawn": " exibidos / ",
+    "jsxreceived": " recebidos ",
+    "jsxVideo": " Vídeo ",
+    "jsxTarget": " Meta ",
+    "jsxMbitsReceivedraw": " Mbit/s · Recepção→exibição ",
+    "jsxDecoder": " Decodificador ",
+    "jsxqueued": " na fila / ",
+    "jsxpending": " pendentes ",
+    "jsxKeyframes": " Quadros-chave ",
+    "jsxsLastframe": " /s · Último quadro ",
+    "jsxmsago": " ms atrás ",
+    "jsxKeyboard": "Teclado",
+    "jsxLeavecontrol": "Sair do controle",
+    "jsxMove": "Mover",
+    "jsxmuted": "(desativado)",
+    "jsxCurrent": "Atual (",
+    "jsxHistory": "Histórico (",
+    "jsxvalues": "valores)",
+    "jsxDoubleclicktoedit": "Clique duas vezes para editar",
+    "jsxbreadcrumb": "Navegação estrutural",
+    "jsxBacktoBots": "Voltar aos bots",
+    "jsxoutput": "(saída)",
+    "streamMetrics": "Métricas da transmissão POV",
+    "streamWaiting": " · aguardando quadro-chave",
+    "unableStartPov": "Não foi possível iniciar a visualização do bot.",
+    "expressionFilters": "Filtros",
+    "expressionNofiltersapplied": "Nenhum filtro aplicado",
+    "expressionModifyfilterstorefineyourrows": "Modifique os filtros para refinar as linhas.",
+    "expressionAddfilterstorefineyourrows": "Adicione filtros para refinar as linhas.",
+    "expressionSelectfield": "Selecionar campo",
+    "expressionempty": "vazio",
+    "expressionnotempty": "não vazio",
+    "expressionEnteravalue": "Digite um valor...",
+    "expressionTrue": "Verdadeiro",
+    "expressionFalse": "Falso",
+    "expressionSearchoptions": "Buscar opções...",
+    "expressionFilter": "Filtrar",
+    "expressionSearchfields": "Buscar campos...",
+    "expressionEntervalue": "Digite um valor...",
+    "expressionSelectoptions": "Selecione opções...",
+    "expressionSelectoption": "Selecione uma opção...",
+    "expressionSortby": "Ordenar por",
+    "expressionNosortingapplied": "Nenhuma ordenação aplicada",
+    "expressionModifysortingtoorganizeyourrows": "Modifique a ordenação para organizar as linhas.",
+    "expressionAddsortingtoorganizeyourrows": "Adicione uma ordenação para organizar as linhas.",
+    "expressionMinecrafthead": "Cabeça do Minecraft",
+    "expressionJump": "Pular",
+    "expressionSneak": "Agachar",
+    "expressionAttack": "Atacar",
+    "expressionUse": "Usar",
+    "expressionInventory": "Inventário",
+    "expressionMinimumandmaximumsettings": "Configurações de mínimo e máximo",
+    "expressionThiswillpermanentlydeletethescriptThisactioncannotbeundone": "Isso excluirá permanentemente o script. Esta ação não pode ser desfeita.",
+    "expressionThiswillpermanentlydeletethisinstanceanditsdataThisactioncannotbeundone": "Isso excluirá permanentemente a instância e seus dados. Esta ação não pode ser desfeita."
   }
 }

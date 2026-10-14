@@ -1,6 +1,6 @@
 {
-  "name": "SoulFire",
-  "short_name": "SoulFire",
+  "name": "Dev+ Control",
+  "short_name": "Dev+ Control",
   "icons": [
     {
       "src": "/icons/web-app-manifest-192x192.png",
@@ -13,7 +13,7 @@
       "type": "image/png"
     }
   ],
-  "theme_color": "#3289BF",
-  "background_color": "#3289BF",
+  "theme_color": "#080D18",
+  "background_color": "#080D18",
   "display": "standalone"
 }

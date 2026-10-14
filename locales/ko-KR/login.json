@@ -1,11 +1,11 @@
 {
   "header": {
     "image": {
-      "alt": "SoulFire 로고"
+      "alt": "Dev+ Control"
     },
-    "title": "SoulFire"
+    "title": "Dev+ Control"
   },
-  "newUser": "SoulFire가 처음이신가요? <a>시작 가이드</a>를 읽어보세요.",
+  "newUser": "Dev+ Control가 처음이신가요? <a>시작 가이드</a>를 읽어보세요.",
   "connect": {
     "title": "SoulFire 서버에 연결하기",
     "description": "연결할 SoulFire 서버의 유형을 선택하세요.",

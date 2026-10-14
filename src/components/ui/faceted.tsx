@@ -1,4 +1,5 @@
 "use client";
+import i18n from "@/lib/i18n.ts";
 
 import { Popover as PopoverPrimitive } from "@base-ui/react/popover";
 import { Check, ChevronsUpDown } from "lucide-react";
@@ -189,8 +190,7 @@ function FacetedBadgeList(props: FacetedBadgeListProps) {
           variant="secondary"
           className={cn("rounded-sm px-1 font-normal", badgeClassName)}
         >
-          {values.length} selected
-        </Badge>
+          {values.length}{i18n.t("common:customUi.jsxselected")}</Badge>
       ) : (
         values.map((value) => (
           <Badge

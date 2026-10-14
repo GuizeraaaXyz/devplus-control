@@ -28,8 +28,8 @@
   },
   "dialog": {
     "about": {
-      "title": "เกี่ยวกับ SoulFire",
-      "description": "คุณกำลังใช้งาน SoulFire client เวอร์ชัน {{version}}.",
+      "title": "Dev+ Control",
+      "description": "คุณกำลังใช้งาน Dev+ Control client เวอร์ชัน {{version}}. — Powered by Dogcode_. SoulFire (AGPL-3.0).",
       "type": "ประเภท",
       "value": "ค่า",
       "fields": {
@@ -44,7 +44,11 @@
         "environment": "สภาพแวดล้อม",
         "browser": "เบราว์เซอร์"
       },
-      "close": "ปิด"
+      "close": "ปิด",
+      "originalSource": "Original source and credits",
+      "modifiedSource": "Source for this distribution",
+      "license": "AGPL-3.0 license",
+      "unknown": "Unknown"
     },
     "support": {
       "title": "สนับสนุน SoulFire",

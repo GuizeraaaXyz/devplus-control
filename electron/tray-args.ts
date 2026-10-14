@@ -1,4 +1,4 @@
-export const TRAY_GUID = "08dbd6ec-34c7-4dc2-a8a3-59cef3cc4644";
+export const TRAY_GUID = "a4c3d378-2d49-4f7d-bda8-3c44df276b96";
 
 export function trayGuidForPlatform(platform: NodeJS.Platform): string | null {
   return platform === "linux" ? null : TRAY_GUID;

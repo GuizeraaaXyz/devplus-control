@@ -28,8 +28,8 @@
   },
   "dialog": {
     "about": {
-      "title": "About SoulFire",
-      "description": "Ye be runnin' version {{version}} o' the SoulFire crew client.",
+      "title": "Dev+ Control",
+      "description": "Ye be runnin' version {{version}} o' the Dev+ Control crew client. — Powered by Dogcode_. SoulFire (AGPL-3.0).",
       "type": "Cargo Type",
       "value": "Worth",
       "fields": {
@@ -44,7 +44,11 @@
         "environment": "Surroundin's",
         "browser": "Spyglass"
       },
-      "close": "Batten down!"
+      "close": "Batten down!",
+      "originalSource": "Original source and credits",
+      "modifiedSource": "Source for this distribution",
+      "license": "AGPL-3.0 license",
+      "unknown": "Unknown"
     },
     "support": {
       "title": "Be Supportin' SoulFire, matey!",

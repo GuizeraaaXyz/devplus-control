@@ -1,3 +1,4 @@
+import i18n from "@/lib/i18n.ts";
 import type { JsonValue } from "@bufbuild/protobuf";
 import type { Value } from "@bufbuild/protobuf/wkt";
 import { createClient } from "@connectrpc/connect";
@@ -427,7 +428,7 @@ function DialogContentInner({
             <FieldSet className="gap-3">
               <FieldLegend variant="label">
                 {t("account.metadata.addEntryLegend", {
-                  defaultValue: "Add metadata entry",
+                  defaultValue: i18n.t("common:customUi.addMetadataEntry"),
                 })}
               </FieldLegend>
               <FieldGroup className="gap-3 md:grid md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)_minmax(0,1fr)_auto] md:items-start">
@@ -440,7 +441,7 @@ function DialogContentInner({
                       <Field data-invalid={isInvalid} className="gap-2">
                         <FieldLabel htmlFor={field.name}>
                           {t("account.metadata.namespaceLabel", {
-                            defaultValue: "Namespace",
+                            defaultValue: i18n.t("common:customUi.namespace"),
                           })}
                         </FieldLabel>
                         <Input
@@ -472,7 +473,7 @@ function DialogContentInner({
                       <Field data-invalid={isInvalid} className="gap-2">
                         <FieldLabel htmlFor={field.name}>
                           {t("account.metadata.keyLabel", {
-                            defaultValue: "Key",
+                            defaultValue: i18n.t("common:customUi.key"),
                           })}
                         </FieldLabel>
                         <Input
@@ -502,7 +503,7 @@ function DialogContentInner({
                       <Field data-invalid={isInvalid} className="gap-2">
                         <FieldLabel htmlFor={field.name}>
                           {t("account.metadata.valueLabel", {
-                            defaultValue: "Value",
+                            defaultValue: i18n.t("common:customUi.value"),
                           })}
                         </FieldLabel>
                         <Input
@@ -532,7 +533,7 @@ function DialogContentInner({
                   >
                     <PlusIcon data-icon="inline-start" />
                     {t("account.metadata.addEntryButton", {
-                      defaultValue: "Add entry",
+                      defaultValue: i18n.t("common:customUi.addEntry"),
                     })}
                   </Button>
                 </div>
@@ -604,14 +605,14 @@ function EntryRow({
     <FieldSet className="gap-3 rounded-lg border p-3">
       <FieldLegend className="sr-only">
         {t("account.metadata.entryLegend", {
-          defaultValue: "Metadata entry",
+          defaultValue: i18n.t("common:customUi.metadataEntry"),
         })}
       </FieldLegend>
       <FieldGroup className="gap-3 md:grid md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)_minmax(0,1fr)_auto] md:items-start">
         <Field className="gap-2">
           <FieldLabel htmlFor={`${entry.id}-namespace`}>
             {t("account.metadata.namespaceLabel", {
-              defaultValue: "Namespace",
+              defaultValue: i18n.t("common:customUi.namespace"),
             })}
           </FieldLabel>
           <Input
@@ -630,7 +631,7 @@ function EntryRow({
         <Field className="gap-2">
           <FieldLabel htmlFor={`${entry.id}-key`}>
             {t("account.metadata.keyLabel", {
-              defaultValue: "Key",
+              defaultValue: i18n.t("common:customUi.key"),
             })}
           </FieldLabel>
           <Input
@@ -649,7 +650,7 @@ function EntryRow({
         <Field data-invalid={!isValidJson} className="gap-2">
           <FieldLabel htmlFor={`${entry.id}-value`}>
             {t("account.metadata.valueLabel", {
-              defaultValue: "Value",
+              defaultValue: i18n.t("common:customUi.value"),
             })}
           </FieldLabel>
           <Input
@@ -674,7 +675,7 @@ function EntryRow({
           <Button variant="outline" onClick={onDelete} disabled={isDeleting}>
             <TrashIcon data-icon="inline-start" />
             {t("account.metadata.removeEntryButton", {
-              defaultValue: "Remove",
+              defaultValue: i18n.t("common:customUi.remove"),
             })}
           </Button>
         </div>

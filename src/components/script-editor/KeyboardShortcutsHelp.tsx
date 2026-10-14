@@ -1,3 +1,4 @@
+import i18n from "@/lib/i18n.ts";
 import { Keyboard } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Kbd } from "@/components/ui/kbd";
@@ -10,31 +11,31 @@ import {
 import { formatShortcut } from "@/lib/platform.ts";
 
 const SHORTCUTS = [
-  { keys: "A", action: "Select all nodes" },
-  { keys: "Alt + A", action: "Deselect all" },
-  { keys: "Shift + A", action: "Quick add menu" },
-  { keys: "Shift + D", action: "Duplicate selection" },
-  { keys: "L", action: "Select linked nodes" },
-  { keys: "Ctrl + L", action: "Select upstream nodes" },
-  { keys: "Alt + L", action: "Select downstream nodes" },
-  { keys: "Shift + S", action: "Select similar nodes" },
-  { keys: "Tab", action: "Enter/Exit group" },
-  { keys: "M", action: "Toggle mute node" },
-  { keys: "H", action: "Toggle collapse node" },
-  { keys: "Ctrl + H", action: "Hide unconnected sockets" },
-  { keys: "Shift + H", action: "Toggle node preview" },
-  { keys: "Ctrl + G", action: "Create group from selection" },
-  { keys: "Ctrl + Alt + G", action: "Ungroup selected" },
-  { keys: "Ctrl + J", action: "Create frame from selection" },
-  { keys: "Ctrl + C", action: "Copy selection" },
-  { keys: "Ctrl + V", action: "Paste" },
-  { keys: "Ctrl + Shift + ←↑↓→", action: "Align nodes" },
-  { keys: "Alt + Shift + H/V", action: "Distribute nodes" },
-  { keys: "Alt + Drag", action: "Cut links" },
-  { keys: "Shift + Right Click", action: "Quick reroute on edge" },
-  { keys: "Right Click", action: "Quick add menu at cursor" },
-  { keys: "Delete / Backspace / X", action: "Delete selection" },
-  { keys: "F2", action: "Rename selected node" },
+  { keys: "A", action: "common:customUi.selectAllNodes" },
+  { keys: "Alt + A", action: "common:customUi.deselectAll" },
+  { keys: "Shift + A", action: "common:customUi.quickAddMenu" },
+  { keys: "Shift + D", action: "common:customUi.duplicateSelection" },
+  { keys: "L", action: "common:customUi.selectLinkedNodes" },
+  { keys: "Ctrl + L", action: "common:customUi.selectUpstreamNodes" },
+  { keys: "Alt + L", action: "common:customUi.selectDownstreamNodes" },
+  { keys: "Shift + S", action: "common:customUi.selectSimilarNodes" },
+  { keys: "Tab", action: "common:customUi.enterExitGroup" },
+  { keys: "M", action: "common:customUi.toggleMuteNode" },
+  { keys: "H", action: "common:customUi.toggleCollapseNode" },
+  { keys: "Ctrl + H", action: "common:customUi.hideUnconnectedSockets" },
+  { keys: "Shift + H", action: "common:customUi.toggleNodePreview" },
+  { keys: "Ctrl + G", action: "common:customUi.createGroupFromSelection" },
+  { keys: "Ctrl + Alt + G", action: "common:customUi.ungroupSelected" },
+  { keys: "Ctrl + J", action: "common:customUi.createFrameFromSelection" },
+  { keys: "Ctrl + C", action: "common:customUi.copySelection" },
+  { keys: "Ctrl + V", action: "common:customUi.paste" },
+  { keys: "Ctrl + Shift + ←↑↓→", action: "common:customUi.alignNodes" },
+  { keys: "Alt + Shift + H/V", action: "common:customUi.distributeNodes" },
+  { keys: "Alt + Drag", action: "common:customUi.cutLinks" },
+  { keys: "Shift + Right Click", action: "common:customUi.quickRerouteOnEdge" },
+  { keys: "Right Click", action: "common:customUi.quickAddMenuAtCursor" },
+  { keys: "Delete / Backspace / X", action: "common:customUi.deleteSelection" },
+  { keys: "F2", action: "common:customUi.renameSelectedNode" },
 ];
 
 /**
@@ -52,14 +53,18 @@ export function KeyboardShortcutsHelp() {
         </TooltipTrigger>
         <TooltipContent side="left" className="w-64">
           <div className="flex flex-col gap-2">
-            <p className="font-medium">Keyboard Shortcuts</p>
+            <p className="font-medium">
+              {i18n.t("common:customUi.keyboardShortcuts")}
+            </p>
             <div className="flex flex-col gap-1">
               {SHORTCUTS.map(({ keys, action }) => (
                 <div
                   key={keys}
                   className="flex items-center justify-between text-xs"
                 >
-                  <span className="text-muted-foreground">{action}</span>
+                  <span className="text-muted-foreground">
+                    {i18n.t(action)}
+                  </span>
                   <Kbd className="font-mono">{formatShortcut(keys)}</Kbd>
                 </div>
               ))}

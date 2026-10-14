@@ -1,11 +1,11 @@
 {
   "header": {
     "image": {
-      "alt": "SoulFire-logo"
+      "alt": "Dev+ Control"
     },
-    "title": "SoulFire"
+    "title": "Dev+ Control"
   },
-  "newUser": "Uusi SoulFire-käyttäjä? Lue <a>aloitusopas</a>.",
+  "newUser": "Uusi Dev+ Control-käyttäjä? Lue <a>aloitusopas</a>.",
   "connect": {
     "title": "Yhdistä SoulFire-palvelimeen",
     "description": "Valitse mihin tyyppiseen SoulFire-palvelimeen haluat yhdistää.",

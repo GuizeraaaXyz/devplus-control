@@ -1,3 +1,4 @@
+import i18n from "@/lib/i18n.ts";
 import type { JsonValue } from "@bufbuild/protobuf";
 import {
   useMutation,
@@ -678,7 +679,7 @@ export function SettingTypeRenderer(props: {
           <FieldLegend className="sr-only">
             {props.settingType.value.minEntry?.uiName ??
               props.settingType.value.maxEntry?.uiName ??
-              "Minimum and maximum settings"}
+              i18n.t("common:customUi.expressionMinimumandmaximumsettings")}
           </FieldLegend>
           <FieldGroup className="gap-4">
             <Field>

@@ -28,8 +28,8 @@
   },
   "dialog": {
     "about": {
-      "title": "O SoulFire",
-      "description": "Používáte verzi {{version}} klienta SoulFire.",
+      "title": "Dev+ Control",
+      "description": "Používáte verzi {{version}} klienta Dev+ Control. — Powered by Dogcode_. SoulFire (AGPL-3.0).",
       "type": "Typ",
       "value": "Hodnota",
       "fields": {
@@ -44,7 +44,11 @@
         "environment": "Prostředí",
         "browser": "Prohlížeč"
       },
-      "close": "Zavřít"
+      "close": "Zavřít",
+      "originalSource": "Original source and credits",
+      "modifiedSource": "Source for this distribution",
+      "license": "AGPL-3.0 license",
+      "unknown": "Unknown"
     },
     "support": {
       "title": "Podpořte SoulFire",

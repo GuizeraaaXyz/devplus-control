@@ -8,7 +8,6 @@ import {
   ChevronsUpDown,
   CircleHelpIcon,
   FolderIcon,
-  HeartHandshakeIcon,
   LanguagesIcon,
   LaptopMinimalIcon,
   LogOutIcon,
@@ -24,7 +23,6 @@ import { Suspense, use, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { toast } from "sonner";
 import { AboutContext } from "@/components/dialog/about-dialog.tsx";
-import { ExternalLink } from "@/components/external-link.tsx";
 import { IntegratedServerDiagnosticsDialog } from "@/components/IntegratedServerDiagnostics";
 import CastMenuEntry from "@/components/nav/cast-menu-entry.tsx";
 import { SystemInfoContext } from "@/components/providers/system-info-context.tsx";
@@ -270,17 +268,6 @@ export function NavAccount() {
                           </DropdownMenuRadioItem>
                         ))}
                     </DropdownMenuRadioGroup>
-                    <DropdownMenuSeparator />
-                    <DropdownMenuGroup>
-                      <DropdownMenuItem
-                        render={
-                          <ExternalLink href="https://translate.soulfiremc.com?utm_source=soulfire-client&utm_medium=app&utm_campaign=settings-translate" />
-                        }
-                      >
-                        <HeartHandshakeIcon />
-                        {t("userSidebar.helpTranslate")}
-                      </DropdownMenuItem>
-                    </DropdownMenuGroup>
                   </DropdownMenuSubContent>
                 </DropdownMenuPortal>
               </DropdownMenuSub>
@@ -345,14 +332,6 @@ export function NavAccount() {
             )}
             <DropdownMenuSeparator />
             <DropdownMenuGroup>
-              <DropdownMenuItem
-                render={
-                  <ExternalLink href="https://soulfiremc.com/pricing?utm_source=soulfire-client&utm_medium=app&utm_campaign=account-menu-support" />
-                }
-              >
-                <HeartHandshakeIcon />
-                {t("userSidebar.supportSoulFire")}
-              </DropdownMenuItem>
               <DropdownMenuItem onClick={openAbout}>
                 <CircleHelpIcon />
                 {t("userSidebar.about")}

@@ -1,4 +1,5 @@
 import { mkdir, readdir, readFile, stat, writeFile } from "node:fs/promises";
+import { randomUUID } from "node:crypto";
 import os from "node:os";
 import path from "node:path";
 import { pathToFileURL } from "node:url";
@@ -15,6 +16,7 @@ import {
   nativeTheme,
   net,
   protocol,
+  safeStorage,
   shell,
   Tray,
 } from "electron";
@@ -49,7 +51,7 @@ import {
 import { trayGuidForPlatform } from "./tray-args";
 import { startUpdater } from "./updater";
 
-const APP_ID = "com.soulfiremc.soulfire";
+const APP_ID = "com.dogcode.devplus";
 const APP_PROTOCOL = "app";
 const APP_PROTOCOL_HOST = "soulfire";
 const DEEP_LINK_PREFIX = "soulfire://";
@@ -91,6 +93,14 @@ const windowStateStore = new Store<{
     },
   },
   name: "window-state",
+});
+
+const licenseStore = new Store<{
+  encryptedDeviceId?: string;
+  encryptedLicenseKey?: string;
+}>({
+  defaults: {},
+  name: "license",
 });
 
 const integratedServerState = createIntegratedServerState();
@@ -431,7 +441,7 @@ function registerSecurityHandlers(): void {
           overrideBrowserWindowOptions: {
             autoHideMenuBar: true,
             frame: false,
-            backgroundColor: "#111418",
+            backgroundColor: "#080D18",
             webPreferences: {
               nodeIntegration: false,
               contextIsolation: true,
@@ -481,7 +491,7 @@ async function createMainWindow(): Promise<BrowserWindow> {
       };
 
   const window = new BrowserWindow({
-    backgroundColor: "#111418",
+    backgroundColor: "#080D18",
     center: true,
     frame: false,
     height: state.height,
@@ -489,7 +499,7 @@ async function createMainWindow(): Promise<BrowserWindow> {
     minHeight: 500,
     minWidth: 940,
     show: false,
-    title: "SoulFire",
+    title: "<Dev+/> - Powered by Dogcode_.",
     webPreferences: {
       contextIsolation: true,
       preload: preloadPath(),
@@ -571,20 +581,20 @@ function createAppTray(): void {
   }
   const trayGuid = trayGuidForPlatform(process.platform);
   tray = trayGuid === null ? new Tray(image) : new Tray(image, trayGuid);
-  tray.setToolTip("SoulFire");
+  tray.setToolTip("Dev+ Control");
   tray.setContextMenu(
     Menu.buildFromTemplate([
       {
         click: () => {
           focusMainWindow();
         },
-        label: "Open SoulFire",
+        label: "Abrir Dev+ Control",
       },
       {
         click: () => {
           app.quit();
         },
-        label: "Quit",
+        label: "Sair",
       },
     ]),
   );
@@ -641,6 +651,74 @@ function registerIpcHandlers(): void {
 
   handleIpc("app:set-theme", async (_window, theme: DesktopTheme) => {
     setThemeSource(theme);
+  });
+
+  handleIpc("license:get-key", async () => {
+    const encryptedKey = licenseStore.get("encryptedLicenseKey");
+    if (!encryptedKey) return null;
+
+    try {
+      return safeStorage.decryptString(Buffer.from(encryptedKey, "base64"));
+    } catch {
+      licenseStore.delete("encryptedLicenseKey");
+      return null;
+    }
+  });
+
+  handleIpc("license:get-device-id", async () => {
+    if (!safeStorage.isEncryptionAvailable()) {
+      throw new Error("OS secure storage is unavailable");
+    }
+    if (
+      process.platform === "linux" &&
+      safeStorage.getSelectedStorageBackend() === "basic_text"
+    ) {
+      throw new Error("A Linux keyring is required for device binding");
+    }
+
+    const encryptedId = licenseStore.get("encryptedDeviceId");
+    if (encryptedId) {
+      try {
+        return safeStorage.decryptString(Buffer.from(encryptedId, "base64"));
+      } catch {
+        licenseStore.delete("encryptedDeviceId");
+      }
+    }
+
+    const deviceId = randomUUID();
+    const encryptedDeviceId = safeStorage
+      .encryptString(deviceId)
+      .toString("base64");
+    licenseStore.set("encryptedDeviceId", encryptedDeviceId);
+    return deviceId;
+  });
+
+  handleIpc("license:save-key", async (_window, key: string) => {
+    if (
+      typeof key !== "string" ||
+      key.trim().length === 0 ||
+      key.length > 4096
+    ) {
+      throw new Error("Invalid license key");
+    }
+    if (!safeStorage.isEncryptionAvailable()) {
+      throw new Error("OS secure storage is unavailable");
+    }
+    if (
+      process.platform === "linux" &&
+      safeStorage.getSelectedStorageBackend() === "basic_text"
+    ) {
+      throw new Error("A Linux keyring is required to store the license key");
+    }
+
+    const encryptedKey = safeStorage
+      .encryptString(key.trim())
+      .toString("base64");
+    licenseStore.set("encryptedLicenseKey", encryptedKey);
+  });
+
+  handleIpc("license:clear-key", async () => {
+    licenseStore.delete("encryptedLicenseKey");
   });
 
   handleIpc("cast:broadcast", async (_window, payload?: unknown) => {
@@ -808,7 +886,7 @@ function registerIpcHandlers(): void {
   });
   handleIpc("integrated-server:select-jcmd", async (window) => {
     const result = await dialog.showOpenDialog(window, {
-      title: "Choose jcmd from JDK 25",
+      title: "Escolher jcmd do JDK 25",
       properties: ["openFile"],
     });
     const executable = result.filePaths[0];

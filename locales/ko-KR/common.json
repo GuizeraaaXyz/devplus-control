@@ -28,8 +28,8 @@
   },
   "dialog": {
     "about": {
-      "title": "SoulFire 정보",
-      "description": "현재 SoulFire 클라이언트 버전 {{version}}을(를) 사용 중입니다.",
+      "title": "Dev+ Control",
+      "description": "현재 Dev+ Control 클라이언트 버전 {{version}}을(를) 사용 중입니다. — Powered by Dogcode_. SoulFire (AGPL-3.0).",
       "type": "종류",
       "value": "값",
       "fields": {
@@ -44,7 +44,11 @@
         "environment": "환경",
         "browser": "브라우저"
       },
-      "close": "닫기"
+      "close": "닫기",
+      "originalSource": "Original source and credits",
+      "modifiedSource": "Source for this distribution",
+      "license": "AGPL-3.0 license",
+      "unknown": "Unknown"
     },
     "support": {
       "title": "SoulFire를 지원하기",

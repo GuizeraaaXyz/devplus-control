@@ -1,3 +1,4 @@
+import i18n from "@/lib/i18n.ts";
 import { useSelector } from "@tanstack/react-store";
 import {
   type Edge,
@@ -518,7 +519,9 @@ function BaseNodeComponent({
           variant={isMuted ? "muted" : "default"}
         />
         {isMuted && supportsMuting && (
-          <span className="text-xs text-muted-foreground">(muted)</span>
+          <span className="text-xs text-muted-foreground">
+            {i18n.t("common:customUi.jsxmuted")}
+          </span>
         )}
         <ValidationBadges nodeId={id} />
         <ExecutionTimeBadge nodeId={id} />

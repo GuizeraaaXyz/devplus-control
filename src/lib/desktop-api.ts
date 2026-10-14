@@ -201,6 +201,12 @@ export interface SoulFireDesktopApi {
       jvmArgs: string[];
     }) => Promise<DesktopIntegratedServerCredentials | null>;
   };
+  license: {
+    getKey: () => Promise<string | null>;
+    getDeviceId: () => Promise<string>;
+    saveKey: (key: string) => Promise<void>;
+    clearKey: () => Promise<void>;
+  };
   path: {
     appConfigDir: () => Promise<string>;
     appLocalDataDir: () => Promise<string>;

@@ -144,7 +144,7 @@ export async function runIntegratedServer(
       dataDirectory: soulFireRunDir,
       port: availablePort,
     });
-    report("Starting SoulFire server...");
+    report("Iniciando servidor SoulFire...");
 
     const child = spawn(
       javaExecPath,
@@ -207,14 +207,14 @@ export async function importCustomSoulFireServerJar(
   sourcePath: string,
 ): Promise<CustomSoulFireServerJar> {
   if (path.extname(sourcePath).toLowerCase() !== ".jar") {
-    throw new Error("Custom SoulFire server file must be a jar");
+    throw new Error("O arquivo do servidor SoulFire deve ser um JAR");
   }
 
   await validateJar(sourcePath);
 
   const fileStat = await stat(sourcePath);
   if (!fileStat.isFile()) {
-    throw new Error("Custom SoulFire server jar path is not a file");
+    throw new Error("O caminho do JAR do servidor SoulFire não é um arquivo");
   }
 
   const sha256 = await sha256FileHex(sourcePath);
@@ -280,10 +280,12 @@ async function resolveSoulFireJar(
   if (jarSource.type === "custom") {
     const jar = await findCustomSoulFireServerJar(app, jarSource.jarId);
     if (jar === null || !(await exists(jar.path))) {
-      throw new Error("Custom SoulFire server jar is no longer available");
+      throw new Error(
+        "O JAR personalizado do servidor SoulFire não está mais disponível",
+      );
     }
 
-    report(`Using custom SoulFire jar: ${jar.originalName}`);
+    report(`Usando JAR personalizado do SoulFire: ${jar.originalName}`);
 
     return {
       jarPath: jar.path,
@@ -391,7 +393,7 @@ async function validateJar(jarPath: string): Promise<void> {
   try {
     zip = new AdmZip(jarPath);
   } catch {
-    throw new Error("Custom SoulFire server jar is not a valid jar file");
+    throw new Error("O arquivo selecionado não é um JAR válido");
   }
 
   const hasManifest = zip
@@ -402,7 +404,7 @@ async function validateJar(jarPath: string): Promise<void> {
         entry.entryName.toUpperCase() === "META-INF/MANIFEST.MF",
     );
   if (!hasManifest) {
-    throw new Error("Custom SoulFire server jar is missing a manifest");
+    throw new Error("O JAR personalizado não contém um manifesto");
   }
 }
 
@@ -417,7 +419,7 @@ async function ensureJvm(
       path.join(getJavaHomeDir(jvmDir), "bin", getJavaExecutableName()),
     )
   ) {
-    report("JVM detected");
+    report("JVM detectada");
     return;
   }
 
@@ -425,10 +427,10 @@ async function ensureJvm(
   const adoptiumArch = detectArchitecture();
   const jvmUrl = `https://api.adoptium.net/v3/assets/latest/25/hotspot?architecture=${adoptiumArch}&image_type=jre&os=${adoptiumOs}&vendor=eclipse`;
 
-  report("Fetching JVM data...");
+  report("Obtendo dados da JVM...");
   const metadataResponse = await fetch(jvmUrl, { signal });
   if (!metadataResponse.ok) {
-    throw new Error("Failed to fetch JVM metadata");
+    throw new Error("Falha ao obter metadados da JVM");
   }
 
   const metadata = (await metadataResponse.json()) as Array<{
@@ -445,7 +447,7 @@ async function ensureJvm(
   const downloadUrl = release?.binary?.package?.link;
   const releaseName = release?.release_name;
   if (!checksum || !downloadUrl || !releaseName) {
-    throw new Error("JVM metadata was incomplete");
+    throw new Error("Os metadados da JVM estão incompletos");
   }
 
   const archiveTmpPath = `${jvmDir}.download`;
@@ -460,12 +462,12 @@ async function ensureJvm(
 
   try {
     await downloadToFile(downloadUrl, archiveTmpPath, signal, (percent) => {
-      report(`Downloading JVM... ${percent}%`);
+      report(`Baixando JVM... ${percent}%`);
     });
     await verifyFileChecksum(archiveTmpPath, checksum, "JVM", signal);
     signal.throwIfAborted();
 
-    report("Extracting JVM...");
+    report("Extraindo JVM...");
     await mkdir(extractTmpRoot, {
       recursive: true,
     });
@@ -479,7 +481,7 @@ async function ensureJvm(
         file: archiveTmpPath,
       });
     } else {
-      throw new Error("Unsupported JVM archive type");
+      throw new Error("Formato de arquivo da JVM não suportado");
     }
 
     const extractedJvmDir = path.join(extractTmpRoot, `${releaseName}-jre`);
@@ -489,7 +491,7 @@ async function ensureJvm(
       getJavaExecutableName(),
     );
     if (!(await exists(extractedJavaExec))) {
-      throw new Error("Extracted JVM is missing the Java executable");
+      throw new Error("O arquivo da JVM não contém o executável Java");
     }
 
     signal.throwIfAborted();
@@ -504,7 +506,7 @@ async function ensureJvm(
     });
   }
   signal.throwIfAborted();
-  report("Downloaded JVM");
+  report("JVM baixada");
 }
 
 async function ensureSoulFireJar(
@@ -514,7 +516,7 @@ async function ensureSoulFireJar(
   report: (message: string) => void,
   signal: AbortSignal,
 ): Promise<void> {
-  report("Fetching SoulFire checksum metadata...");
+  report("Obtendo metadados de verificação do SoulFire...");
 
   const expectedChecksum = await fetchSoulFireJarChecksum(
     version,
@@ -524,7 +526,7 @@ async function ensureSoulFireJar(
   if (await exists(jarPath)) {
     const existingChecksum = await sha256FileHex(jarPath, signal);
     if (existingChecksum.toLowerCase() === expectedChecksum.toLowerCase()) {
-      report("SoulFire already downloaded and verified");
+      report("SoulFire já baixado e verificado");
       return;
     }
   }
@@ -535,10 +537,10 @@ async function ensureSoulFireJar(
     force: true,
   });
 
-  report("Fetching SoulFire data...");
+  report("Obtendo dados do SoulFire...");
   try {
     await downloadToFile(jarUrl, tempJarPath, signal, (percent) => {
-      report(`Downloading SoulFire... ${percent}%`);
+      report(`Baixando SoulFire... ${percent}%`);
     });
     await verifyFileChecksum(
       tempJarPath,
@@ -551,7 +553,7 @@ async function ensureSoulFireJar(
   } finally {
     await rm(tempJarPath, { force: true });
   }
-  report("Downloaded SoulFire");
+  report("SoulFire baixado");
 }
 
 async function fetchSoulFireJarChecksum(
@@ -569,7 +571,7 @@ async function fetchSoulFireJarChecksum(
     },
   );
   if (!response.ok) {
-    throw new Error("Failed to fetch SoulFire release metadata");
+    throw new Error("Falha ao obter metadados da versão do SoulFire");
   }
 
   const release = (await response.json()) as {
@@ -581,7 +583,9 @@ async function fetchSoulFireJarChecksum(
   const asset = release.assets?.find((entry) => entry.name === jarName);
   const digest = asset?.digest?.replace(/^sha256:/, "");
   if (!digest) {
-    throw new Error("SoulFire release metadata did not include a checksum");
+    throw new Error(
+      "Os metadados da versão do SoulFire não contêm a soma de verificação",
+    );
   }
 
   return digest;
@@ -595,7 +599,7 @@ async function verifyFileChecksum(
 ): Promise<void> {
   const actualChecksum = await sha256FileHex(filePath, signal);
   if (actualChecksum.toLowerCase() !== expectedChecksum.toLowerCase()) {
-    throw new Error(`${label} checksum verification failed`);
+    throw new Error(`${label} falha na verificação da soma de verificação`);
   }
 }
 

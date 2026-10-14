@@ -1,3 +1,4 @@
+import i18n from "@/lib/i18n.ts";
 import { useSelector } from "@tanstack/react-store";
 import { FileDiff } from "lucide-react";
 import { useMemo } from "react";
@@ -111,35 +112,47 @@ export function ScriptDiffDialog() {
       </CredenzaTrigger>
       <CredenzaContent>
         <CredenzaHeader>
-          <CredenzaTitle>Unsaved Changes</CredenzaTitle>
+          <CredenzaTitle>
+            {i18n.t("common:customUi.unsavedChanges")}
+          </CredenzaTitle>
           <CredenzaDescription>
-            Summary of changes since last save.
+            {i18n.t("common:customUi.summaryOfChangesSinceLastSave")}
           </CredenzaDescription>
         </CredenzaHeader>
         <CredenzaBody className="space-y-2 text-sm">
           {diff.addedNodes.length > 0 && (
             <div className="text-success">
-              + {diff.addedNodes.length} node(s) added
+              {t("scripts.editor.diff.addedNodes", {
+                count: diff.addedNodes.length,
+              })}
             </div>
           )}
           {diff.removedNodes.length > 0 && (
             <div className="text-destructive">
-              - {diff.removedNodes.length} node(s) removed
+              {t("scripts.editor.diff.removedNodes", {
+                count: diff.removedNodes.length,
+              })}
             </div>
           )}
           {diff.modifiedNodes.length > 0 && (
             <div className="text-warning-muted">
-              ~ {diff.modifiedNodes.length} node(s) modified
+              {t("scripts.editor.diff.modifiedNodes", {
+                count: diff.modifiedNodes.length,
+              })}
             </div>
           )}
           {diff.addedEdges.length > 0 && (
             <div className="text-success">
-              + {diff.addedEdges.length} edge(s) added
+              {t("scripts.editor.diff.addedEdges", {
+                count: diff.addedEdges.length,
+              })}
             </div>
           )}
           {diff.removedEdges.length > 0 && (
             <div className="text-destructive">
-              - {diff.removedEdges.length} edge(s) removed
+              {t("scripts.editor.diff.removedEdges", {
+                count: diff.removedEdges.length,
+              })}
             </div>
           )}
         </CredenzaBody>

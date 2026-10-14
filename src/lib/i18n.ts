@@ -51,7 +51,7 @@ void i18n
   .use(initReactI18next)
   .init({
     defaultNS: "common",
-    fallbackLng: "en-US",
+    fallbackLng: "pt-BR",
     /// debug: true,
 
     load: "currentOnly",
@@ -65,10 +65,11 @@ void i18n
       escapeValue: false, // not needed for react as it escapes by default
     },
     detection: {
-      order: ["localStorage", "navigator"],
+      order: ["localStorage"],
       caches: ["localStorage"],
     },
-  });
+  })
+  .then(() => tryApplyZodLocale(i18n.language));
 
 i18n.on("languageChanged", (lng) => {
   void tryApplyZodLocale(lng);

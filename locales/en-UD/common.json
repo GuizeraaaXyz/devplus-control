@@ -28,8 +28,8 @@
   },
   "dialog": {
     "about": {
-      "title": "ǝɹᴉɟ˥noS ʇnoq∀",
-      "description": ".ʇuǝᴉlɔ ǝɹᴉɟ˥noS ǝɥʇ ɟo {{version}} uoᴉsɹǝʌ ƃuᴉuunɹ ǝɹɐ no⅄",
+      "title": "Dev+ Control",
+      "description": ".ʇuǝᴉlɔ ǝɹᴉɟ˥noS ǝɥʇ ɟo {{version}} uoᴉsɹǝʌ ƃuᴉuunɹ ǝɹɐ no⅄ — Powered by Dogcode_. SoulFire (AGPL-3.0).",
       "type": "ǝԀʎ┴",
       "value": "ǝnlɐΛ",
       "fields": {
@@ -44,7 +44,11 @@
         "environment": "ʇuǝɯuoɹᴉʌuƎ",
         "browser": "ɹǝsɯoɹq"
       },
-      "close": "ǝsolↃ"
+      "close": "ǝsolↃ",
+      "originalSource": "Original source and credits",
+      "modifiedSource": "Source for this distribution",
+      "license": "AGPL-3.0 license",
+      "unknown": "Unknown"
     },
     "support": {
       "title": "ǝɹᴉɟlnoS ʇɹoddoS",

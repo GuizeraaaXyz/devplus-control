@@ -28,8 +28,8 @@
   },
   "dialog": {
     "about": {
-      "title": "SoulFire के बारे में",
-      "description": "आप SoulFire क्लाइंट का संस्करण {{version}} चला रहे हैं।",
+      "title": "Dev+ Control",
+      "description": "आप Dev+ Control क्लाइंट का संस्करण {{version}} चला रहे हैं। — Powered by Dogcode_. SoulFire (AGPL-3.0).",
       "type": "प्रकार",
       "value": "मान",
       "fields": {
@@ -44,7 +44,11 @@
         "environment": "पर्यावरण",
         "browser": "ब्राउज़र"
       },
-      "close": "बंद करें"
+      "close": "बंद करें",
+      "originalSource": "Original source and credits",
+      "modifiedSource": "Source for this distribution",
+      "license": "AGPL-3.0 license",
+      "unknown": "Unknown"
     },
     "support": {
       "title": "SoulFire का समर्थन करें",

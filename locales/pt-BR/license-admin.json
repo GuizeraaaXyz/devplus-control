@@ -1,0 +1,83 @@
+{
+  "title": "Gerenciamento de licenças",
+  "description": "Emita e gerencie as assinaturas do Dev+ Control.",
+  "config": {
+    "title": "Supabase não configurado",
+    "description": "Conecte este painel ao seu projeto Supabase para gerenciar licenças.",
+    "help": "Defina VITE_SUPABASE_URL e VITE_SUPABASE_PUBLISHABLE_KEY no ambiente de build do painel."
+  },
+  "login": {
+    "title": "Acesso administrativo",
+    "description": "Entre com uma conta de administrador criada no Supabase Auth.",
+    "email": "E-mail",
+    "password": "Senha",
+    "submit": "Entrar",
+    "signingIn": "Entrando…",
+    "signOut": "Sair",
+    "adminProvisioning": "O cadastro público está desativado. Peça ao responsável pelo projeto para criar uma conta administrativa."
+  },
+  "errors": {
+    "title": "Não foi possível concluir a operação",
+    "notConfigured": "A configuração do Supabase está ausente.",
+    "connection": "Não foi possível conectar ao Supabase.",
+    "invalidResponse": "O Supabase retornou uma resposta inesperada.",
+    "unauthorized": "Esta conta não tem permissão para gerenciar licenças.",
+    "invalidOptions": "Confira o nome do plano e a duração. O prazo deve ser de 1 a 24 meses.",
+    "notFound": "Esta licença não foi encontrada.",
+    "revoked": "Esta licença foi revogada e não pode ser alterada.",
+    "rateLimited": "Muitas solicitações. Aguarde um momento e tente de novo.",
+    "server": "O serviço de licenças está indisponível. Tente novamente mais tarde.",
+    "copy": "Não foi possível copiar a chave da licença.",
+    "unexpected": "Ocorreu um erro inesperado. Tente novamente."
+  },
+  "notice": {
+    "title": "Concluído"
+  },
+  "create": {
+    "title": "Emitir licença",
+    "description": "O prazo da assinatura começa na primeira ativação.",
+    "plan": "Nome do plano",
+    "duration": "Duração em meses",
+    "submit": "Criar licença",
+    "creating": "Criando…",
+    "created": "Licença criada. Copie a chave agora; ela não será mostrada novamente.",
+    "keyTitle": "Nova chave de licença",
+    "keyWarning": "Guarde com segurança e envie ao cliente.",
+    "copy": "Copiar chave",
+    "copied": "Copiada"
+  },
+  "list": {
+    "title": "Licenças emitidas",
+    "count": "{{count}} licenças",
+    "empty": "Nenhuma licença por enquanto.",
+    "loading": "Carregando licenças…",
+    "refresh": "Atualizar",
+    "key": "Chave",
+    "plan": "Plano",
+    "status": "Status",
+    "expiration": "Validade",
+    "devices": "Dispositivos",
+    "actions": "Ações",
+    "months": "{{count}} meses",
+    "notActivated": "Não ativada",
+    "deviceUsage": "{{used}} / {{limit}}",
+    "keyStorageNote": "A chave completa não é armazenada nem exibida novamente após a criação."
+  },
+  "status": {
+    "active": "Ativa",
+    "inactive": "Não ativada",
+    "expired": "Expirada",
+    "revoked": "Revogada"
+  },
+  "actions": {
+    "renew": "Renovar por um mês",
+    "revoke": "Revogar licença",
+    "resetDevice": "Permitir ativação em outro dispositivo",
+    "confirmRevoke": "Revogar esta licença? Esta ação não pode ser desfeita.",
+    "confirmReset": "Remover o vínculo atual do dispositivo? A próxima ativação vinculará outro dispositivo.",
+    "renewSuccess": "Licença renovada.",
+    "revokeSuccess": "Licença revogada.",
+    "reset-deviceSuccess": "Vínculo do dispositivo removido."
+  },
+  "signedInAs": "Sessão iniciada como {{email}}"
+}

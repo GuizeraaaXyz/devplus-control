@@ -192,6 +192,20 @@ export const desktop = {
       return requireDesktopRuntime().integratedServer.run(options);
     },
   },
+  license: {
+    async getKey(): Promise<string | null> {
+      return requireDesktopRuntime().license.getKey();
+    },
+    async getDeviceId(): Promise<string> {
+      return requireDesktopRuntime().license.getDeviceId();
+    },
+    async saveKey(key: string): Promise<void> {
+      await requireDesktopRuntime().license.saveKey(key);
+    },
+    async clearKey(): Promise<void> {
+      await requireDesktopRuntime().license.clearKey();
+    },
+  },
   path: {
     async appConfigDir(): Promise<string> {
       return requireDesktopRuntime().path.appConfigDir();

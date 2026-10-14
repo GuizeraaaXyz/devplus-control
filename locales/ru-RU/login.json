@@ -1,11 +1,11 @@
 {
   "header": {
     "image": {
-      "alt": "Логотип SoulFire"
+      "alt": "Dev+ Control"
     },
-    "title": "SoulFire"
+    "title": "Dev+ Control"
   },
-  "newUser": "Вы новичок в SoulFire? Прочитайте <a>руководство для начинающих</a>.",
+  "newUser": "Вы новичок в Dev+ Control? Прочитайте <a>руководство для начинающих</a>.",
   "connect": {
     "title": "Подключение к серверу SoulFire",
     "description": "Выберите тип подключения к SoulFire серверу.",

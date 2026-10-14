@@ -1,0 +1,9 @@
+Dev+ Control — interface personalizada por Dogcode_.
+Baseado em SoulFireClient e seus contribuidores, sob AGPL-3.0.
+Original: https://github.com/soulfiremc-com/SoulFireClient
+
+O código-fonte completo desta compilação está em devplus-source.zip,
+acessível pela janela Sobre. O build também gera DevPlus-Control-Source.zip
+para distribuição junto ao instalador, incluindo scripts e lockfile.
+Se publicar um repositório, inclua aqui o endereço e o commit correspondente.
+Consulte DEVPLUS.md na raiz do projeto.

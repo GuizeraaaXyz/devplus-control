@@ -1,11 +1,11 @@
 {
   "header": {
     "image": {
-      "alt": "SoulFire Jolly Roger"
+      "alt": "Dev+ Control"
     },
-    "title": "SoulFire"
+    "title": "Dev+ Control"
   },
-  "newUser": "Be ye new t' SoulFire? Read the <a>guide fer gettin' started</a>, matey!",
+  "newUser": "Be ye new t' Dev+ Control? Read the <a>guide fer gettin' started</a>, matey!",
   "connect": {
     "title": "Hoist yer sails to a SoulFire server",
     "description": "Choose which kind o' SoulFire vessel ye wish to board, matey.",

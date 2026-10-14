@@ -7,7 +7,7 @@
         "cpu": "CPU",
         "heapUsed": "Heap Usada",
         "threads": "Threads",
-        "botsOnline": "Bots Online",
+        "botsOnline": "Bots conectados",
         "uptime": "Tempo de atividade"
       },
       "cpuUsage": {

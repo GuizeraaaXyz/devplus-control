@@ -1,0 +1,18 @@
+project_id = "devplus-license-system"
+
+[api]
+enabled = true
+schemas = ["public", "graphql_public"]
+extra_search_path = ["public", "extensions"]
+
+[realtime]
+enabled = false
+
+[analytics]
+enabled = false
+
+[functions.license-api]
+verify_jwt = false
+
+[functions.license-admin]
+verify_jwt = true

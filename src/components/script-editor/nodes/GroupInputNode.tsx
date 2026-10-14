@@ -1,3 +1,4 @@
+import i18n from "@/lib/i18n.ts";
 import { Handle, type NodeProps, Position } from "@xyflow/react";
 import { ArrowRightFromLine } from "lucide-react";
 import { memo } from "react";
@@ -33,7 +34,9 @@ function GroupInputNodeComponent({ data, selected }: GroupInputNodeProps) {
       {/* Header */}
       <div className="flex items-center gap-2 border-b border-border/50 bg-success/10 px-3 py-2">
         <ArrowRightFromLine className="h-4 w-4 text-success" />
-        <span className="text-sm font-medium">Group Input</span>
+        <span className="text-sm font-medium">
+          {i18n.t("common:customUi.groupInput")}
+        </span>
       </div>
 
       {/* Output ports */}
@@ -75,7 +78,7 @@ function GroupInputNodeComponent({ data, selected }: GroupInputNodeProps) {
         <Empty className="border-0 p-3">
           <EmptyHeader className="gap-1">
             <EmptyTitle className="text-xs text-muted-foreground">
-              No inputs defined
+              {i18n.t("common:customUi.extraNoinputsdefined")}
             </EmptyTitle>
           </EmptyHeader>
         </Empty>

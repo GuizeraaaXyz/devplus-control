@@ -1,3 +1,4 @@
+import i18n from "@/lib/i18n.ts";
 import { useRef } from "react";
 import { Button } from "@/components/ui/button";
 
@@ -44,7 +45,7 @@ export function PovTouchControls({
             }}
             onClick={keyboard}
           >
-            Keyboard
+            {i18n.t("common:customUi.jsxKeyboard")}
           </Button>
         )}
         <Button
@@ -57,13 +58,13 @@ export function PovTouchControls({
           }}
           onClick={release}
         >
-          Leave control
+          {i18n.t("common:customUi.jsxLeavecontrol")}
         </Button>
       </div>
       {!screenOpen && (
         <>
           <fieldset
-            aria-label="Move"
+            aria-label={i18n.t("common:customUi.jsxMove")}
             className="pointer-events-auto absolute bottom-6 left-6 flex size-28 touch-none items-center justify-center rounded-full border border-white/40 bg-black/30 text-white select-none"
             onPointerDown={(event) => {
               event.preventDefault();
@@ -90,15 +91,26 @@ export function PovTouchControls({
             onPointerCancel={reset}
             onLostPointerCapture={reset}
           >
-            Move
+            {i18n.t("common:customUi.jsxMove")}
           </fieldset>
           <div className="pointer-events-auto absolute right-6 bottom-6 grid grid-cols-2 gap-2">
             {[
-              { label: "Jump", code: 32 },
-              { label: "Sneak", code: 340 },
-              { label: "Attack", code: 0, mouse: true },
-              { label: "Use", code: 1, mouse: true },
-              { label: "Inventory", code: 69 },
+              { label: i18n.t("common:customUi.expressionJump"), code: 32 },
+              { label: i18n.t("common:customUi.expressionSneak"), code: 340 },
+              {
+                label: i18n.t("common:customUi.expressionAttack"),
+                code: 0,
+                mouse: true,
+              },
+              {
+                label: i18n.t("common:customUi.expressionUse"),
+                code: 1,
+                mouse: true,
+              },
+              {
+                label: i18n.t("common:customUi.expressionInventory"),
+                code: 69,
+              },
             ].map((control) => (
               <Button
                 key={control.label}

@@ -28,8 +28,8 @@
   },
   "dialog": {
     "about": {
-      "title": "Tentang SoulFire",
-      "description": "Anda menjalankan SoulFire client versi {{version}}.",
+      "title": "Dev+ Control",
+      "description": "Anda menjalankan Dev+ Control client versi {{version}}. — Powered by Dogcode_. SoulFire (AGPL-3.0).",
       "type": "Tipe",
       "value": "Nilai",
       "fields": {
@@ -44,7 +44,11 @@
         "environment": "Lingkungan",
         "browser": "Peramban"
       },
-      "close": "Tutup"
+      "close": "Tutup",
+      "originalSource": "Original source and credits",
+      "modifiedSource": "Source for this distribution",
+      "license": "AGPL-3.0 license",
+      "unknown": "Unknown"
     },
     "support": {
       "title": "Dukung SoulFire",

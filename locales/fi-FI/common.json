@@ -28,8 +28,8 @@
   },
   "dialog": {
     "about": {
-      "title": "Tietoa SoulFiresta",
-      "description": "Käytössäsi on SoulFire-asiakasohjelman versio {{version}}.",
+      "title": "Dev+ Control",
+      "description": "Käytössäsi on Dev+ Control-asiakasohjelman versio {{version}}. — Powered by Dogcode_. SoulFire (AGPL-3.0).",
       "type": "Tyyppi",
       "value": "Arvo",
       "fields": {
@@ -44,7 +44,11 @@
         "environment": "Ympäristö",
         "browser": "Selain"
       },
-      "close": "Sulje"
+      "close": "Sulje",
+      "originalSource": "Original source and credits",
+      "modifiedSource": "Source for this distribution",
+      "license": "AGPL-3.0 license",
+      "unknown": "Unknown"
     },
     "support": {
       "title": "Tue SoulFirea",

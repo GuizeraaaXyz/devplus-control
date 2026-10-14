@@ -328,7 +328,7 @@ function Index() {
   return (
     <div className="relative flex min-h-0 flex-1 flex-col">
       <svg className="fill-muted-foreground/5 absolute top-0 right-0 bottom-0 left-0 z-[-1] h-dvh w-dvw">
-        <title>Decorative background pattern</title>
+        <title>{i18n.t("common:customUi.decorativeBackgroundPattern")}</title>
         <defs>
           <pattern
             id={circuitPatternId}
@@ -756,12 +756,12 @@ function IntegratedConfigureMenu({
         {
           extensions: ["jar"],
           name: t("integrated.form.jar.dialog.filter", {
-            defaultValue: "Java archive",
+            defaultValue: i18n.t("common:customUi.javaArchive"),
           }),
         },
       ],
       title: t("integrated.form.jar.dialog.title", {
-        defaultValue: "Select SoulFire server jar",
+        defaultValue: i18n.t("common:customUi.selectSoulFireServerJar"),
       }),
     });
     if (typeof selectedPath !== "string") {
@@ -787,7 +787,7 @@ function IntegratedConfigureMenu({
       );
       toast.success(
         t("integrated.form.jar.importSuccess", {
-          defaultValue: "Imported {{name}}",
+          defaultValue: i18n.t("common:customUi.importedName"),
           name: jar.originalName,
         }),
       );
@@ -797,7 +797,9 @@ function IntegratedConfigureMenu({
         error instanceof Error
           ? error.message
           : t("integrated.form.jar.importError", {
-              defaultValue: "Failed to import custom SoulFire jar",
+              defaultValue: i18n.t(
+                "common:customUi.failedToImportCustomSoulFireJar",
+              ),
             }),
       );
     } finally {
@@ -965,7 +967,7 @@ function IntegratedConfigureMenu({
             <Field>
               <FieldLabel>
                 {t("integrated.form.jar.title", {
-                  defaultValue: "Server jar",
+                  defaultValue: i18n.t("common:customUi.serverJar"),
                 })}
               </FieldLabel>
               <div className="grid grid-cols-2 gap-2">
@@ -978,7 +980,7 @@ function IntegratedConfigureMenu({
                 >
                   <ServerIcon />
                   {t("integrated.form.jar.official", {
-                    defaultValue: "Official",
+                    defaultValue: i18n.t("common:customUi.official"),
                   })}
                 </Button>
                 <Button
@@ -990,7 +992,7 @@ function IntegratedConfigureMenu({
                 >
                   <FileArchiveIcon />
                   {t("integrated.form.jar.custom", {
-                    defaultValue: "Custom",
+                    defaultValue: i18n.t("common:customUi.custom"),
                   })}
                 </Button>
               </div>
@@ -1000,21 +1002,27 @@ function IntegratedConfigureMenu({
                     <p className="font-medium text-sm">
                       {selectedJarSource === "custom"
                         ? t("integrated.form.jar.customTitle", {
-                            defaultValue: "Custom server jar",
+                            defaultValue: i18n.t(
+                              "common:customUi.customServerJar",
+                            ),
                           })
                         : t("integrated.form.jar.officialTitle", {
-                            defaultValue: "Official SoulFire server",
+                            defaultValue: i18n.t(
+                              "common:customUi.officialSoulFireServer",
+                            ),
                           })}
                     </p>
                     <p className="text-muted-foreground text-xs">
                       {selectedJarSource === "custom"
                         ? t("integrated.form.jar.customDescription", {
-                            defaultValue:
-                              "Runs an imported jar. It is not verified or auto-updated.",
+                            defaultValue: i18n.t(
+                              "common:customUi.runsAnImportedJarItIsNotVerifiedOrAutoupdated",
+                            ),
                           })
                         : t("integrated.form.jar.officialDescription", {
-                            defaultValue:
-                              "Downloads and verifies the matching SoulFire release.",
+                            defaultValue: i18n.t(
+                              "common:customUi.downloadsAndVerifiesTheMatchingSoulFireRelease",
+                            ),
                           })}
                     </p>
                   </div>
@@ -1033,7 +1041,7 @@ function IntegratedConfigureMenu({
                         <UploadIcon />
                       )}
                       {t("integrated.form.jar.import", {
-                        defaultValue: "Import jar",
+                        defaultValue: i18n.t("common:customUi.importJar"),
                       })}
                     </Button>
                   )}

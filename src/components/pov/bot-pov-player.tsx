@@ -1,3 +1,4 @@
+import i18n from "@/lib/i18n.ts";
 import { create } from "@bufbuild/protobuf";
 import { useSelector } from "@tanstack/react-store";
 import {
@@ -263,7 +264,9 @@ function BotPovSession({
       );
     } catch (reason) {
       actions.setError(
-        reason instanceof Error ? reason.message : "Unable to start POV.",
+        reason instanceof Error
+          ? reason.message
+          : i18n.t("common:customUi.unableStartPov"),
       );
     }
     return () => {
@@ -757,10 +760,12 @@ function BotPovSession({
       "popup,width=1280,height=800",
     );
     if (!child) {
-      actions.setError("Allow popups to detach the POV window.");
+      actions.setError(
+        i18n.t("common:customUi.extraAllowpopupstodetachthePOVwindow"),
+      );
       return;
     }
-    child.document.title = "SoulFire POV";
+    child.document.title = "Dev+ Control POV";
     child.document.documentElement.className =
       document.documentElement.className;
     for (const style of document.querySelectorAll(
@@ -786,7 +791,9 @@ function BotPovSession({
         await root.requestFullscreen();
       }
     } catch {
-      actions.setError("Fullscreen is unavailable in this window.");
+      actions.setError(
+        i18n.t("common:customUi.extraFullscreenisunavailableinthiswindow"),
+      );
     }
   }
 
@@ -798,7 +805,9 @@ function BotPovSession({
     >
       {popup && isDesktopApp() && !fullscreen && (
         <header data-app-drag-region="" className={titlebarClassName}>
-          <span className="col-start-2 self-center text-xs">SoulFire POV</span>
+          <span className="col-start-2 self-center text-xs">
+            Dev+ Control POV
+          </span>
           <div className="window-topbar-no-drag col-start-3 justify-self-end">
             <WindowControls windowApi={desktop.povWindow} />
           </div>
@@ -806,7 +815,9 @@ function BotPovSession({
       )}
       {!immersive && (
         <div className="flex flex-wrap items-center gap-2">
-          <h3 className="mr-auto text-sm font-medium">Bot POV</h3>
+          <h3 className="mr-auto text-sm font-medium">
+            {i18n.t("common:customUi.botPOV")}
+          </h3>
           <Button
             size="sm"
             variant="outline"
@@ -821,7 +832,9 @@ function BotPovSession({
             ) : (
               <PlayIcon data-icon="inline-start" />
             )}
-            {playing ? "Stop" : "Watch"}
+            {playing
+              ? i18n.t("common:customUi.extraStop")
+              : i18n.t("common:customUi.extraWatch")}
           </Button>
           <Button
             size="sm"
@@ -830,19 +843,19 @@ function BotPovSession({
             onClick={capture}
           >
             <Gamepad2Icon data-icon="inline-start" />
-            Play
+            {i18n.t("common:customUi.extraPlay")}
           </Button>
           <Button
             size="sm"
             variant="outline"
             onClick={toggleFullscreen}
-            aria-label="Fullscreen"
+            aria-label={i18n.t("common:customUi.extraFullscreen")}
           >
             <ExpandIcon />
           </Button>
           <Button size="sm" variant="outline" onClick={detach}>
             <ExternalLinkIcon data-icon="inline-start" />
-            Detach
+            {i18n.t("common:customUi.extraDetach")}
           </Button>
         </div>
       )}
@@ -851,7 +864,7 @@ function BotPovSession({
       >
         <textarea
           ref={textInputRef}
-          aria-label="Minecraft text input"
+          aria-label={i18n.t("common:customUi.extraMinecrafttextinput")}
           autoCapitalize="off"
           autoComplete="off"
           spellCheck={false}
@@ -861,7 +874,7 @@ function BotPovSession({
         <canvas
           ref={attachCanvas}
           className="block size-full touch-none"
-          aria-label="Live Minecraft POV"
+          aria-label={i18n.t("common:customUi.extraLiveMinecraftPOV")}
         />
         {metrics && <PovStreamOverlay metrics={metrics} />}
         {touch && captured && (
@@ -902,11 +915,11 @@ function BotPovSession({
                   }}
                 >
                   <RefreshCwIcon data-icon="inline-start" />
-                  Reconnect
+                  {i18n.t("common:customUi.extraReconnect")}
                 </Button>
               </div>
             ) : !isOnline ? (
-              <p>Bot is offline</p>
+              <p>{i18n.t("common:customUi.botIsOffline")}</p>
             ) : !playing ? (
               <Button
                 onClick={() => {
@@ -914,10 +927,10 @@ function BotPovSession({
                 }}
               >
                 <PlayIcon data-icon="inline-start" />
-                Watch bot
+                {i18n.t("common:customUi.extraWatchbot")}
               </Button>
             ) : !connected || autoStart || capturePending ? (
-              <p>Connecting…</p>
+              <p>{i18n.t("common:customUi.connecting")}</p>
             ) : (
               <button
                 type="button"
@@ -926,7 +939,7 @@ function BotPovSession({
               >
                 <span className={buttonVariants()}>
                   <Gamepad2Icon data-icon="inline-start" />
-                  Click to play
+                  {i18n.t("common:customUi.extraClicktoplay")}
                 </span>
                 {captureError && (
                   <span className="absolute inset-x-4 bottom-4 text-center text-sm text-muted-foreground">
@@ -957,10 +970,10 @@ function BotPovSession({
       {createPortal(player, popup.document.body)}
       <div className="flex items-center gap-2">
         <Button variant="outline" onClick={() => popup.focus()}>
-          Show POV window
+          {i18n.t("common:customUi.extraShowPOVwindow")}
         </Button>
         <Button variant="outline" onClick={() => setPopup(null)}>
-          Attach POV window
+          {i18n.t("common:customUi.extraAttachPOVwindow")}
         </Button>
       </div>
     </>

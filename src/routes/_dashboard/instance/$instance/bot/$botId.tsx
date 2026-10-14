@@ -239,7 +239,7 @@ function BotDetail() {
         <div className="container flex py-8">
           <Empty className="mx-auto max-w-md bg-card">
             <EmptyHeader>
-              <EmptyTitle>Bot not found</EmptyTitle>
+              <EmptyTitle>{i18n.t("common:customUi.botNotFound")}</EmptyTitle>
             </EmptyHeader>
             <EmptyContent>
               <Button
@@ -253,7 +253,7 @@ function BotDetail() {
                 }
               >
                 <ArrowLeftIcon data-icon="inline-start" />
-                Back to Bots
+                {i18n.t("common:customUi.jsxBacktoBots")}
               </Button>
             </EmptyContent>
           </Empty>
@@ -702,11 +702,15 @@ function OverviewTab({
                   </p>
                   <div className="mt-1 grid select-text grid-cols-2 gap-2 font-mono text-sm">
                     <div>
-                      <span className="text-muted-foreground">Pitch:</span>{" "}
+                      <span className="text-muted-foreground">
+                        {i18n.t("common:customUi.extraPitch")}
+                      </span>{" "}
                       {liveState.xRot.toFixed(1)}°
                     </div>
                     <div>
-                      <span className="text-muted-foreground">Yaw:</span>{" "}
+                      <span className="text-muted-foreground">
+                        {i18n.t("common:customUi.extraYaw")}
+                      </span>{" "}
                       {liveState.yRot.toFixed(1)}°
                     </div>
                   </div>
@@ -975,7 +979,11 @@ function SlotRegionGrid({
       <p className="text-muted-foreground mb-1 flex items-center gap-1 text-xs font-medium">
         {isArmor && <ShieldIcon className="size-3" />}
         {region.label}
-        {isOutput && <span className="text-muted-foreground/50">(output)</span>}
+        {isOutput && (
+          <span className="text-muted-foreground/50">
+            {i18n.t("common:customUi.jsxoutput")}
+          </span>
+        )}
       </p>
       <div
         className="inline-grid gap-1"

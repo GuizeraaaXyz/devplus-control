@@ -28,8 +28,8 @@
   },
   "dialog": {
     "about": {
-      "title": "Über SoulFire",
-      "description": "Du verwendest Version {{version}} des SoulFire Clients.",
+      "title": "Dev+ Control",
+      "description": "Du verwendest Version {{version}} des Dev+ Control Clients. — Powered by Dogcode_. SoulFire (AGPL-3.0).",
       "type": "Typ",
       "value": "Wert",
       "fields": {
@@ -44,7 +44,11 @@
         "environment": "Umgebung",
         "browser": "Browser"
       },
-      "close": "Schließen"
+      "close": "Schließen",
+      "originalSource": "Original source and credits",
+      "modifiedSource": "Source for this distribution",
+      "license": "AGPL-3.0 license",
+      "unknown": "Unknown"
     },
     "support": {
       "title": "SoulFire unterstützen",

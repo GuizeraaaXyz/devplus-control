@@ -1,3 +1,4 @@
+import i18n from "@/lib/i18n.ts";
 import {
   ChevronLeft,
   ChevronRight,
@@ -70,7 +71,9 @@ export function ExecutionReplay({
 
   return (
     <div className="flex items-center gap-2 px-3 py-1.5 bg-muted/50 border-t border-border">
-      <span className="text-xs font-medium text-muted-foreground">Replay</span>
+      <span className="text-xs font-medium text-muted-foreground">
+        {i18n.t("common:customUi.replay")}
+      </span>
 
       <Button
         variant="ghost"

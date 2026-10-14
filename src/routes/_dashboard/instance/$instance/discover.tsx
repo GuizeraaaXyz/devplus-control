@@ -96,7 +96,9 @@ function Content() {
           </EmptyMedia>
           <EmptyTitle>
             {t("discover.noPluginsTitle", {
-              defaultValue: "No discoverable plugins found",
+              defaultValue: i18n.t(
+                "common:customUi.noDiscoverablePluginsFound",
+              ),
             })}
           </EmptyTitle>
           <EmptyDescription>

@@ -28,8 +28,8 @@
   },
   "dialog": {
     "about": {
-      "title": "Giới thiệu SoulFire",
-      "description": "Bạn đang chạy phiên bản {{version}} của ứng dụng SoulFire.",
+      "title": "Dev+ Control",
+      "description": "Bạn đang chạy phiên bản {{version}} của ứng dụng Dev+ Control. — Powered by Dogcode_. SoulFire (AGPL-3.0).",
       "type": "Loại",
       "value": "Giá trị",
       "fields": {
@@ -44,7 +44,11 @@
         "environment": "Môi trường",
         "browser": "Trình duyệt"
       },
-      "close": "Đóng"
+      "close": "Đóng",
+      "originalSource": "Original source and credits",
+      "modifiedSource": "Source for this distribution",
+      "license": "AGPL-3.0 license",
+      "unknown": "Unknown"
     },
     "support": {
       "title": "Ủng hộ SoulFire",

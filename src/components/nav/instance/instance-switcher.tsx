@@ -1,3 +1,4 @@
+import i18n from "@/lib/i18n.ts";
 import { createClient } from "@connectrpc/connect";
 import {
   useMutation,
@@ -550,10 +551,13 @@ function DeleteInstanceButton() {
             <AlertDialogMedia>
               <TrashIcon />
             </AlertDialogMedia>
-            <AlertDialogTitle>Delete instance?</AlertDialogTitle>
+            <AlertDialogTitle>
+              {i18n.t("common:customUi.deleteInstance")}
+            </AlertDialogTitle>
             <AlertDialogDescription>
-              This will permanently delete "{instanceInfo.friendlyName}" and its
-              data. This action cannot be undone.
+              {i18n.t("common:customUi.jsxThiswillpermanentlydelete")}
+              {instanceInfo.friendlyName}
+              {i18n.t("common:customUi.jsxanditsdataThisactioncannotbeundone")}
             </AlertDialogDescription>
           </AlertDialogHeader>
           <AlertDialogFooter>

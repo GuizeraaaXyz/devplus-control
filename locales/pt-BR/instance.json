@@ -124,9 +124,11 @@
     "filterPlaceholder": "Filtrar proxies...",
     "listImportToast": {
       "loading": "Importando proxies...",
-      "success": "{{count, plural, one {Importado {{count}} proxy!} other {Importados {{count}} proxies!}}",
+      "success": "{{count}} proxies importados!",
       "error": "Falha ao importar proxies",
-      "noProxies": "Nenhum proxy para importar"
+      "noProxies": "Nenhum proxy para importar",
+      "success_one": "{{count}} proxy importado!",
+      "success_other": "{{count}} proxies importados!"
     },
     "import": {
       "proxyType": "Tipo de Proxy",
@@ -141,13 +143,17 @@
     },
     "removeToast": {
       "loading": "Removendo proxies...",
-      "success": "{{count, plural, one {Removido {{count}} proxy!} other {Removidos {{count}} proxies!}}",
-      "error": "Falha ao remover proxies"
+      "success": "{{count}} proxies removidos!",
+      "error": "Falha ao remover proxies",
+      "success_one": "{{count}} proxy removido!",
+      "success_other": "{{count}} proxies removidos!"
     },
     "checkToast": {
       "loading": "Verificando proxies... {{checked}}/{{total}} (Sucesso: {{success}} Falha: {{failed}})",
-      "success": "{{count, plural, one {Removido {{count}} proxy quebrado!} other {Removidos {{count}} proxies quebrados!}}",
-      "error": "Falha ao verificar proxies"
+      "success": "{{count}} proxies inválidos removidos!",
+      "error": "Falha ao verificar proxies",
+      "success_one": "{{count}} proxy inválido removido!",
+      "success_other": "{{count}} proxies inválidos removidos!"
     },
     "checkDialog": {
       "title": "Verificar Proxies",
@@ -257,8 +263,10 @@
     },
     "removeToast": {
       "loading": "Removendo contas...",
-      "success": "{{count, plural, one {Removida {{count}} conta!} other {Removidas {{count}} contas!}}",
-      "error": "Falha ao remover contas"
+      "success": "{{count}} contas removidas!",
+      "error": "Falha ao remover contas",
+      "success_one": "{{count}} conta removida!",
+      "success_other": "{{count}} contas removidas!"
     },
     "table": {
       "type": "Tipo",
@@ -547,7 +555,7 @@
       "tick": "Tick"
     },
     "botsOnline": {
-      "title": "Bots Online",
+      "title": "Bots conectados",
       "online": "Online",
       "total": "Total"
     },
@@ -725,7 +733,12 @@
         "searchPlaceholder": "Pesquisar nós..."
       },
       "diff": {
-        "tooltip": "Revisar alterações"
+        "tooltip": "Revisar alterações",
+        "addedNodes": "+ {{count}} nó(s) adicionado(s)",
+        "removedNodes": "- {{count}} nó(s) removido(s)",
+        "modifiedNodes": "~ {{count}} nó(s) modificado(s)",
+        "addedEdges": "+ {{count}} conexão(ões) adicionada(s)",
+        "removedEdges": "- {{count}} conexão(ões) removida(s)"
       },
       "dryRun": {
         "tooltip": "Execução Simulada",

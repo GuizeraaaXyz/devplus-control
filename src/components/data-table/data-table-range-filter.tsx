@@ -1,5 +1,7 @@
 "use client";
 
+import i18n from "@/lib/i18n.ts";
+
 import type { Column, RowData } from "@tanstack/react-table";
 import * as React from "react";
 
@@ -104,7 +106,9 @@ export function DataTableRangeFilter<TData extends RowData>({
         defaultValue={value[0]}
         onChange={(event) => onRangeValueChange(event.target.value, true)}
       />
-      <span className="sr-only shrink-0 text-muted-foreground">to</span>
+      <span className="sr-only shrink-0 text-muted-foreground">
+        {i18n.t("common:customUi.to")}
+      </span>
       <Input
         id={`${inputId}-max`}
         type="number"

@@ -1,4 +1,5 @@
 "use client";
+import i18n from "@/lib/i18n.ts";
 
 import type { CellData, Column, RowData } from "@tanstack/react-table";
 import {
@@ -68,7 +69,7 @@ export function DataTableColumnHeader<
               onClick={() => column.toggleSorting(false)}
             >
               <ChevronUp />
-              Asc
+              {i18n.t("common:customUi.jsxAsc")}
             </DropdownMenuCheckboxItem>
             <DropdownMenuCheckboxItem
               className="relative pr-8 pl-2 [&>span:first-child]:right-2 [&>span:first-child]:left-auto [&_svg]:text-muted-foreground"
@@ -76,7 +77,7 @@ export function DataTableColumnHeader<
               onClick={() => column.toggleSorting(true)}
             >
               <ChevronDown />
-              Desc
+              {i18n.t("common:customUi.jsxDesc")}
             </DropdownMenuCheckboxItem>
             {column.getIsSorted() && (
               <DropdownMenuItem
@@ -84,7 +85,7 @@ export function DataTableColumnHeader<
                 onClick={() => column.clearSorting()}
               >
                 <X />
-                Reset
+                {i18n.t("common:customUi.extraReset")}
               </DropdownMenuItem>
             )}
           </>
@@ -96,7 +97,7 @@ export function DataTableColumnHeader<
             onClick={() => column.toggleVisibility(false)}
           >
             <EyeOff />
-            Hide
+            {i18n.t("common:customUi.jsxHide")}
           </DropdownMenuCheckboxItem>
         )}
       </DropdownMenuContent>

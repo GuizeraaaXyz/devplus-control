@@ -9,6 +9,8 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as LicenseAdminRouteImport } from './routes/license-admin'
+import { Route as LicenseRouteImport } from './routes/license'
 import { Route as DashboardRouteImport } from './routes/_dashboard'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as DashboardUserRouteImport } from './routes/_dashboard/user'
@@ -35,6 +37,16 @@ import { Route as DashboardInstanceInstanceSettingsPageIdRouteImport } from './r
 import { Route as DashboardInstanceInstanceScriptScriptIdRouteImport } from './routes/_dashboard/instance/$instance/script/$scriptId'
 import { Route as DashboardInstanceInstanceBotBotIdRouteImport } from './routes/_dashboard/instance/$instance/bot/$botId'
 
+const LicenseAdminRoute = LicenseAdminRouteImport.update({
+  id: '/license-admin',
+  path: '/license-admin',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LicenseRoute = LicenseRouteImport.update({
+  id: '/license',
+  path: '/license',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const DashboardRoute = DashboardRouteImport.update({
   id: '/_dashboard',
   getParentRoute: () => rootRouteImport,
@@ -177,6 +189,8 @@ const DashboardInstanceInstanceBotBotIdRoute =
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/license': typeof LicenseRoute
+  '/license-admin': typeof LicenseAdminRoute
   '/user': typeof DashboardUserRouteWithChildren
   '/instance/$instance': typeof DashboardInstanceInstanceRouteWithChildren
   '/user/access': typeof DashboardUserAccessRoute
@@ -203,6 +217,8 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/license': typeof LicenseRoute
+  '/license-admin': typeof LicenseAdminRoute
   '/user/access': typeof DashboardUserAccessRoute
   '/user/settings': typeof DashboardUserSettingsRoute
   '/user': typeof DashboardUserIndexRoute
@@ -228,6 +244,8 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/_dashboard': typeof DashboardRouteWithChildren
+  '/license': typeof LicenseRoute
+  '/license-admin': typeof LicenseAdminRoute
   '/_dashboard/user': typeof DashboardUserRouteWithChildren
   '/_dashboard/instance/$instance': typeof DashboardInstanceInstanceRouteWithChildren
   '/_dashboard/user/access': typeof DashboardUserAccessRoute
@@ -256,6 +274,8 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/license'
+    | '/license-admin'
     | '/user'
     | '/instance/$instance'
     | '/user/access'
@@ -282,6 +302,8 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/license'
+    | '/license-admin'
     | '/user/access'
     | '/user/settings'
     | '/user'
@@ -306,6 +328,8 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/_dashboard'
+    | '/license'
+    | '/license-admin'
     | '/_dashboard/user'
     | '/_dashboard/instance/$instance'
     | '/_dashboard/user/access'
@@ -334,10 +358,26 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   DashboardRoute: typeof DashboardRouteWithChildren
+  LicenseRoute: typeof LicenseRoute
+  LicenseAdminRoute: typeof LicenseAdminRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/license-admin': {
+      id: '/license-admin'
+      path: '/license-admin'
+      fullPath: '/license-admin'
+      preLoaderRoute: typeof LicenseAdminRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/license': {
+      id: '/license'
+      path: '/license'
+      fullPath: '/license'
+      preLoaderRoute: typeof LicenseRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/_dashboard': {
       id: '/_dashboard'
       path: ''
@@ -615,6 +655,8 @@ const DashboardRouteWithChildren = DashboardRoute._addFileChildren(
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   DashboardRoute: DashboardRouteWithChildren,
+  LicenseRoute: LicenseRoute,
+  LicenseAdminRoute: LicenseAdminRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

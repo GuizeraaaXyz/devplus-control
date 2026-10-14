@@ -1,3 +1,4 @@
+import i18n from "@/lib/i18n.ts";
 import { useSuspenseQuery } from "@tanstack/react-query";
 import {
   Link,
@@ -154,7 +155,9 @@ export function NavExtensions() {
                 }
               >
                 <ChevronRightIcon />
-                <span className="sr-only">Toggle</span>
+                <span className="sr-only">
+                  {i18n.t("common:customUi.toggle")}
+                </span>
               </CollapsibleTrigger>
               <CollapsibleContent>
                 <SidebarMenuSub>

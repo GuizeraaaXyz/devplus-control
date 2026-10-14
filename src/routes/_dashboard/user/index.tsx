@@ -649,11 +649,15 @@ function Content() {
             <AlertDialogMedia>
               <TrashIcon />
             </AlertDialogMedia>
-            <AlertDialogTitle>Delete instance?</AlertDialogTitle>
+            <AlertDialogTitle>
+              {i18n.t("common:customUi.deleteInstance")}
+            </AlertDialogTitle>
             <AlertDialogDescription>
               {deleteTarget
                 ? `This will permanently delete "${deleteTarget.friendlyName}" and its data. This action cannot be undone.`
-                : "This will permanently delete this instance and its data. This action cannot be undone."}
+                : i18n.t(
+                    "common:customUi.expressionThiswillpermanentlydeletethisinstanceanditsdataThisactioncannotbeundone",
+                  )}
             </AlertDialogDescription>
           </AlertDialogHeader>
           <AlertDialogFooter>

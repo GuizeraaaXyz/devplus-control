@@ -583,11 +583,15 @@ function Content() {
             <AlertDialogMedia>
               <Trash2Icon />
             </AlertDialogMedia>
-            <AlertDialogTitle>Delete script?</AlertDialogTitle>
+            <AlertDialogTitle>
+              {i18n.t("common:customUi.deleteScript")}
+            </AlertDialogTitle>
             <AlertDialogDescription>
               {deleteTarget
                 ? `This will permanently delete "${deleteTarget.name}". This action cannot be undone.`
-                : "This will permanently delete the script. This action cannot be undone."}
+                : i18n.t(
+                    "common:customUi.expressionThiswillpermanentlydeletethescriptThisactioncannotbeundone",
+                  )}
             </AlertDialogDescription>
           </AlertDialogHeader>
           <AlertDialogFooter>

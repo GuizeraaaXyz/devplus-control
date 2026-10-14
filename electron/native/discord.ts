@@ -9,7 +9,7 @@ const DiscordRpc = require("@xhayper/discord-rpc") as {
   };
 };
 
-const CLIENT_ID = "1248603974475583608";
+const CLIENT_ID = process.env.DEVPLUS_DISCORD_CLIENT_ID;
 
 export class DiscordPresenceManager {
   private readonly client = new DiscordRpc.Client({
@@ -23,6 +23,7 @@ export class DiscordPresenceManager {
   private loginPromise: Promise<void> | null = null;
 
   async update(state: string, details?: string | null): Promise<void> {
+    if (!CLIENT_ID) return;
     try {
       await this.ensureConnected();
       if (!this.ready) {
@@ -34,13 +35,7 @@ export class DiscordPresenceManager {
         details: details ?? undefined,
         startTimestamp: this.startedAt,
         largeImageKey: "logo",
-        largeImageText: "SoulFire \uD83E\uDDD9",
-        buttons: [
-          {
-            label: "Learn more",
-            url: "https://soulfiremc.com",
-          },
-        ],
+        largeImageText: "Dev+ Control — Powered by Dogcode_.",
       });
     } catch (error) {
       console.error("Failed to update Discord activity", error);
@@ -48,6 +43,7 @@ export class DiscordPresenceManager {
   }
 
   private async ensureConnected(): Promise<void> {
+    if (!CLIENT_ID) return;
     if (this.ready) {
       return;
     }

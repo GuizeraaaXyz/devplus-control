@@ -1,5 +1,7 @@
 "use client";
 
+import i18n from "@/lib/i18n.ts";
+
 import type { Column, ReactTable, RowData } from "@tanstack/react-table";
 import {
   CalendarIcon,
@@ -242,7 +244,7 @@ export function DataTableFilterList<TData extends RowData>({
           }
         >
           <ListFilter className="text-muted-foreground" />
-          Filter
+          {i18n.t("common:customUi.jsxFilter")}
           {filters.length > 0 && (
             <Badge
               variant="secondary"
@@ -260,7 +262,9 @@ export function DataTableFilterList<TData extends RowData>({
         >
           <div className="flex flex-col gap-1">
             <h4 id={labelId} className="font-medium leading-none">
-              {filters.length > 0 ? "Filters" : "No filters applied"}
+              {filters.length > 0
+                ? i18n.t("common:customUi.expressionFilters")
+                : i18n.t("common:customUi.expressionNofiltersapplied")}
             </h4>
             <p
               id={descriptionId}
@@ -270,8 +274,12 @@ export function DataTableFilterList<TData extends RowData>({
               )}
             >
               {filters.length > 0
-                ? "Modify filters to refine your rows."
-                : "Add filters to refine your rows."}
+                ? i18n.t(
+                    "common:customUi.expressionModifyfilterstorefineyourrows",
+                  )
+                : i18n.t(
+                    "common:customUi.expressionAddfilterstorefineyourrows",
+                  )}
             </p>
           </div>
           {filters.length > 0 ? (
@@ -305,7 +313,7 @@ export function DataTableFilterList<TData extends RowData>({
               ref={addButtonRef}
               onClick={onFilterAdd}
             >
-              Add filter
+              {i18n.t("common:customUi.extraAddfilter")}
             </Button>
             {filters.length > 0 ? (
               <Button
@@ -314,7 +322,7 @@ export function DataTableFilterList<TData extends RowData>({
                 className="rounded"
                 onClick={onFiltersReset}
               >
-                Reset filters
+                {i18n.t("common:customUi.resetFilters")}
               </Button>
             ) : null}
           </div>
@@ -422,7 +430,9 @@ function DataTableFilterItem<TData extends RowData>({
     >
       <div className="min-w-[72px] text-center">
         {index === 0 ? (
-          <span className="text-muted-foreground text-sm">Where</span>
+          <span className="text-muted-foreground text-sm">
+            {i18n.t("common:customUi.where")}
+          </span>
         ) : index === 1 ? (
           <Select
             value={joinOperator}
@@ -434,7 +444,7 @@ function DataTableFilterItem<TData extends RowData>({
             items={joinOperatorItems}
           >
             <SelectTrigger
-              aria-label="Select join operator"
+              aria-label={i18n.t("common:customUi.extraSelectjoinoperator")}
               aria-controls={joinOperatorListboxId}
               size="sm"
               className="rounded lowercase"
@@ -446,7 +456,9 @@ function DataTableFilterItem<TData extends RowData>({
               className="min-w-(--anchor-width) lowercase"
             >
               <SelectGroup>
-                <SelectLabel>Join operator</SelectLabel>
+                <SelectLabel>
+                  {i18n.t("common:customUi.joinOperator")}
+                </SelectLabel>
                 {joinOperatorItems.map((joinOperator) => (
                   <SelectItem
                     key={joinOperator.value}
@@ -475,15 +487,19 @@ function DataTableFilterItem<TData extends RowData>({
         >
           <span className="truncate">
             {columns.find((column) => column.id === filter.id)?.columnDef.meta
-              ?.label ?? "Select field"}
+              ?.label ?? i18n.t("common:customUi.expressionSelectfield")}
           </span>
           <ChevronsUpDown className="opacity-50" />
         </PopoverTrigger>
         <PopoverContent id={fieldListboxId} align="start" className="w-40 p-0">
           <Command>
-            <CommandInput placeholder="Search fields..." />
+            <CommandInput
+              placeholder={i18n.t("common:customUi.searchFields")}
+            />
             <CommandList>
-              <CommandEmpty>No fields found.</CommandEmpty>
+              <CommandEmpty>
+                {i18n.t("common:customUi.noFieldsFound")}
+              </CommandEmpty>
               <CommandGroup>
                 {columns.map((column) => (
                   <CommandItem
@@ -545,7 +561,9 @@ function DataTableFilterItem<TData extends RowData>({
         </SelectTrigger>
         <SelectContent id={operatorListboxId}>
           <SelectGroup>
-            <SelectLabel>Filter operator</SelectLabel>
+            <SelectLabel>
+              {i18n.t("common:customUi.filterOperator")}
+            </SelectLabel>
             {filterOperators.map((operator) => (
               <SelectItem
                 key={operator.value}
@@ -615,7 +633,9 @@ function onFilterInputRender<TData extends RowData>({
         id={inputId}
         role="status"
         aria-label={`${columnMeta?.label} filter is ${
-          filter.operator === "isEmpty" ? "empty" : "not empty"
+          filter.operator === "isEmpty"
+            ? i18n.t("common:customUi.expressionempty")
+            : i18n.t("common:customUi.expressionnotempty")
         }`}
         aria-live="polite"
         className="h-8 w-full rounded border bg-transparent dark:bg-input/30"
@@ -651,7 +671,10 @@ function onFilterInputRender<TData extends RowData>({
           aria-label={`${columnMeta?.label} filter value`}
           aria-describedby={`${inputId}-description`}
           inputMode={isNumber ? "numeric" : undefined}
-          placeholder={columnMeta?.placeholder ?? "Enter a value..."}
+          placeholder={
+            columnMeta?.placeholder ??
+            i18n.t("common:customUi.expressionEnteravalue")
+          }
           className="h-8 w-full rounded"
           defaultValue={
             typeof filter.value === "string" ? filter.value : undefined
@@ -691,11 +714,17 @@ function onFilterInputRender<TData extends RowData>({
             size="sm"
             className="w-full rounded"
           >
-            <SelectValue placeholder={filter.value ? "True" : "False"} />
+            <SelectValue
+              placeholder={
+                filter.value
+                  ? i18n.t("common:customUi.expressionTrue")
+                  : i18n.t("common:customUi.expressionFalse")
+              }
+            />
           </SelectTrigger>
           <SelectContent id={inputListboxId}>
             <SelectGroup>
-              <SelectLabel>Filter value</SelectLabel>
+              <SelectLabel>{i18n.t("common:customUi.filterValue")}</SelectLabel>
               {BOOLEAN_FILTER_ITEMS.map((item) => (
                 <SelectItem key={item.value} value={item.value}>
                   {item.label}
@@ -755,10 +784,15 @@ function onFilterInputRender<TData extends RowData>({
           <FacetedContent id={inputListboxId} className="w-[200px]">
             <FacetedInput
               aria-label={`Search ${columnMeta?.label} options`}
-              placeholder={columnMeta?.placeholder ?? "Search options..."}
+              placeholder={
+                columnMeta?.placeholder ??
+                i18n.t("common:customUi.expressionSearchoptions")
+              }
             />
             <FacetedList>
-              <FacetedEmpty>No options found.</FacetedEmpty>
+              <FacetedEmpty>
+                {i18n.t("common:customUi.noOptionsFound")}
+              </FacetedEmpty>
               <FacetedGroup>
                 {columnMeta?.options?.map((option) => (
                   <FacetedItem key={option.value} value={option.value}>

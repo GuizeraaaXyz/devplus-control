@@ -1,0 +1,83 @@
+{
+  "title": "License management",
+  "description": "Issue and manage Dev+ Control subscriptions.",
+  "config": {
+    "title": "Supabase is not configured",
+    "description": "Connect this panel to your Supabase project before managing licenses.",
+    "help": "Set VITE_SUPABASE_URL and VITE_SUPABASE_PUBLISHABLE_KEY in the panel build environment."
+  },
+  "login": {
+    "title": "Administrator sign in",
+    "description": "Use an administrator account created in Supabase Auth.",
+    "email": "Email",
+    "password": "Password",
+    "submit": "Sign in",
+    "signingIn": "Signing in…",
+    "signOut": "Sign out",
+    "adminProvisioning": "Public account registration is disabled. Ask a project owner to create an administrator account."
+  },
+  "errors": {
+    "title": "Could not complete the request",
+    "notConfigured": "Supabase configuration is missing.",
+    "connection": "Could not connect to Supabase.",
+    "invalidResponse": "Supabase returned an unexpected response.",
+    "unauthorized": "This account is not authorized to manage licenses.",
+    "invalidOptions": "Check the plan name and duration. The duration must be between 1 and 24 months.",
+    "notFound": "This license was not found.",
+    "revoked": "This license has been revoked and cannot be changed.",
+    "rateLimited": "Too many requests. Wait a moment and try again.",
+    "server": "The license service is unavailable. Try again later.",
+    "copy": "Could not copy the license key.",
+    "unexpected": "An unexpected error occurred. Try again."
+  },
+  "notice": {
+    "title": "Done"
+  },
+  "create": {
+    "title": "Issue a license",
+    "description": "The subscription period starts on the first activation.",
+    "plan": "Plan name",
+    "duration": "Duration in months",
+    "submit": "Create license",
+    "creating": "Creating…",
+    "created": "License created. Copy the key now; it will not be shown again.",
+    "keyTitle": "New license key",
+    "keyWarning": "Store it securely and send it to the customer.",
+    "copy": "Copy key",
+    "copied": "Copied"
+  },
+  "list": {
+    "title": "Issued licenses",
+    "count": "{{count}} licenses",
+    "empty": "No licenses yet.",
+    "loading": "Loading licenses…",
+    "refresh": "Refresh",
+    "key": "Key",
+    "plan": "Plan",
+    "status": "Status",
+    "expiration": "Expires",
+    "devices": "Devices",
+    "actions": "Actions",
+    "months": "{{count}} months",
+    "notActivated": "Not activated",
+    "deviceUsage": "{{used}} / {{limit}}",
+    "keyStorageNote": "Full license keys are never stored or shown again after creation."
+  },
+  "status": {
+    "active": "Active",
+    "inactive": "Not activated",
+    "expired": "Expired",
+    "revoked": "Revoked"
+  },
+  "actions": {
+    "renew": "Renew for one month",
+    "revoke": "Revoke license",
+    "resetDevice": "Allow activation on another device",
+    "confirmRevoke": "Revoke this license? This action cannot be undone.",
+    "confirmReset": "Remove the current device binding? The next activation will bind another device.",
+    "renewSuccess": "License renewed.",
+    "revokeSuccess": "License revoked.",
+    "reset-deviceSuccess": "Device binding cleared."
+  },
+  "signedInAs": "Signed in as {{email}}"
+}

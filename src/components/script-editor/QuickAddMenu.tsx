@@ -1,3 +1,4 @@
+import i18n from "@/lib/i18n.ts";
 import { useSelector } from "@tanstack/react-store";
 import {
   ArrowDownIcon,
@@ -265,9 +266,11 @@ export function QuickAddMenu() {
             {flatList.length === 0 ? (
               <Empty className="border-0 p-4">
                 <EmptyHeader>
-                  <EmptyTitle>No nodes found</EmptyTitle>
+                  <EmptyTitle>
+                    {i18n.t("common:customUi.noNodesFound")}
+                  </EmptyTitle>
                   <EmptyDescription>
-                    Try a different search term.
+                    {i18n.t("common:customUi.tryADifferentSearchTerm")}
                   </EmptyDescription>
                 </EmptyHeader>
               </Empty>
@@ -337,11 +340,11 @@ export function QuickAddMenu() {
         <div className="flex items-center gap-1 border-t px-2 py-1.5 text-xs text-muted-foreground">
           <ArrowUpIcon className="size-3" />
           <ArrowDownIcon className="size-3" />
-          <span>Navigate</span>
+          <span>{i18n.t("common:customUi.navigate")}</span>
           <span className="mx-1">•</span>
-          <span>Enter Select</span>
+          <span>{i18n.t("common:customUi.enterSelect")}</span>
           <span className="mx-1">•</span>
-          <span>Esc Close</span>
+          <span>{i18n.t("common:customUi.escClose")}</span>
         </div>
       </div>
     </>

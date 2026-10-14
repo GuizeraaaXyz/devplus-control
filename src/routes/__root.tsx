@@ -2,6 +2,7 @@ import {
   createRootRouteWithContext,
   deepEqual,
   Outlet,
+  redirect,
   useLocation,
 } from "@tanstack/react-router";
 import "../App.css";
@@ -19,7 +20,6 @@ import { PostHogProvider } from "posthog-js/react";
 import { type CSSProperties, memo, useEffect, useMemo, useState } from "react";
 import { CustomContextMenu } from "@/components/custom-context-menu.tsx";
 import { AboutProvider } from "@/components/dialog/about-dialog.tsx";
-import { SupportDialogProvider } from "@/components/dialog/support-dialog.tsx";
 import {
   type SystemInfo,
   SystemInfoContext,
@@ -44,6 +44,7 @@ import { desktop, isDesktopApp } from "@/lib/desktop.ts";
 import posthog from "@/lib/posthog.ts";
 import { buildDocumentTitle } from "@/lib/route-title.ts";
 import { getTerminalTheme } from "@/lib/utils.tsx";
+import { getLicenseStatus } from "@/lib/license-api.ts";
 
 async function getAvailableProfiles() {
   const profileDir = await desktop.path.resolve(
@@ -86,6 +87,26 @@ async function createSystemInfo() {
 export const Route = createRootRouteWithContext<{
   queryClient: QueryClient;
 }>()({
+  beforeLoad: async ({ location }) => {
+    if (!isDesktopApp() || location.pathname === "/license") {
+      return;
+    }
+
+    const savedKey = await desktop.license.getKey();
+    if (!savedKey) {
+      throw redirect({ to: "/license", replace: true });
+    }
+
+    try {
+      const deviceId = await desktop.license.getDeviceId();
+      const license = await getLicenseStatus(savedKey, deviceId);
+      if (license.status === "active") return;
+    } catch {
+      // An unreachable or misconfigured service must not grant access.
+    }
+
+    throw redirect({ to: "/license", replace: true });
+  },
   loader: async () => {
     let systemInfo: SystemInfo | null;
     if (isDesktopApp()) {
@@ -115,7 +136,7 @@ function RootPending() {
   return (
     <ThemeProvider
       attribute="class"
-      defaultTheme="system"
+      defaultTheme="dark"
       enableSystem
       disableTransitionOnChange
     >
@@ -303,7 +324,7 @@ function RootLayout() {
           <DiscordPresenceUpdater />
           <ThemeProvider
             attribute="class"
-            defaultTheme="system"
+            defaultTheme="dark"
             enableSystem
             disableTransitionOnChange
           >
@@ -323,7 +344,7 @@ function RootLayout() {
                     <PointerReset />
                     <CustomContextMenu />
                     <AboutProvider>
-                      <SupportDialogProvider>
+                      <>
                         {shouldShowWindowTitlebar && <WindowTitlebar />}
                         <div className="flex min-h-0 flex-1 flex-col">
                           <Outlet />
@@ -340,7 +361,7 @@ function RootLayout() {
                             },
                           ]}
                         />
-                      </SupportDialogProvider>
+                      </>
                     </AboutProvider>
                   </div>
                 </TerminalThemeContext>
