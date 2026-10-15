@@ -1,80 +1,79 @@
-<img align="right" src="https://github.com/soulfiremc-com/SoulFire/blob/main/mod/src/main/resources/icons/icon.png?raw=true" height="150" width="150">
+<div align="center">
+  <img src="branding/devplus-logo.png" alt="Logo Dev+ Control" width="128" />
 
-[![discord](https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/cozy/social/discord-singular_vector.svg)](https://discord.gg/vHgRd6YZmH) [![kofi](https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/cozy/donate/kofi-singular_vector.svg)](https://ko-fi.com/alexprogrammerde)
+  <h1>Dev+ Control</h1>
 
-# SoulFireClient
+  <p>Cliente desktop personalizado para gerenciar instâncias, bots e scripts Minecraft.</p>
 
-This is a frontend for the [SoulFire server](https://github.com/soulfiremc-com/SoulFire).
-It is now packaged as a desktop app with Electron while still using the official SoulFire gRPC API.
+  <a href="LICENSE"><img alt="Licença AGPL-3.0" src="https://img.shields.io/badge/licen%C3%A7a-AGPL--3.0-blue.svg" /></a>
+  <a href="https://github.com/GuizeraaaXyz/devplus-control/releases"><img alt="Windows x64" src="https://img.shields.io/badge/Windows-x64-0078D4?logo=windows" /></a>
+</div>
 
-> [!NOTE]
-> For more info about SoulFire, take a look at the main [SoulFire repository](https://github.com/soulfiremc-com/SoulFire).
+## Sobre
 
-## About the client
+O Dev+ Control é uma distribuição personalizada do SoulFireClient, com interface e marca próprias por Dogcode_. Ele funciona como cliente para um servidor SoulFire e utiliza a API oficial gRPC do projeto original.
 
-Built using latest web tech to consistently work on both web, desktop and mobile.
-The client is the GUI for the SoulFire server, but it uses the official SoulFire gRPC API.
-Anything that can be done using the SF client can also be done using gRPC HTTP API calls directly.
+O aplicativo pode ser usado como cliente web ou desktop. No desktop, é possível iniciar um servidor integrado local ou conectar-se a um servidor remoto compatível. A interface oferece gerenciamento de instâncias e bots, além de um editor visual de scripts.
 
-## Installation
+Alguns recursos comerciais do Dev+ Control exigem uma licença Dev+ ativa. A ativação e a consulta do status da licença dependem de conexão com o serviço online.
 
-> [!TIP]
-> Want to check out how SoulFire looks before installing it? Take a look at the official [demo page](https://demo.soulfiremc.com).
+> Para conhecer o projeto original e o servidor, consulte o [repositório SoulFire](https://github.com/soulfiremc-com/SoulFire).
 
-For installing SoulFire, please refer to the [installation guide](https://soulfiremc.com/docs/installation).
+## Download e instalação
 
-<a href='https://flathub.org/apps/com.soulfiremc.soulfire'>
-<img width='240' alt='Get it on Flathub' src='https://flathub.org/api/badge?locale=en'/>
-</a>
+Os instaladores publicados ficam na página de [releases do GitHub](https://github.com/GuizeraaaXyz/devplus-control/releases). Para Windows x64, o asset do instalador é `DevPlus-Control-Setup.exe` quando incluído na release.
 
-## Deployments
+1. Baixe o instalador da release desejada.
+2. Execute `DevPlus-Control-Setup.exe` e siga as instruções do instalador.
+3. Abra o Dev+ Control e escolha um servidor integrado ou remoto compatível.
+4. Se necessário, ative sua licença Dev+ pela tela de licença do aplicativo.
 
-See which branches are at which URLs:
+## Desenvolvimento
 
-- [`release`](https://app.soulfiremc.com) -> app.soulfiremc.com
-- [`main`](https://preview.soulfiremc.com) -> preview.soulfiremc.com
-- [`demo`](https://demo.soulfiremc.com) -> demo.soulfiremc.com
+Instale a versão do Bun indicada em `package.json` e a versão LTS do Node.js usada pelo CI antes de iniciar.
 
-## Building
+```bash
+bun install
+bun run dev                 # Cliente Electron com Vite
+bun run dev:web             # Cliente web com Vite
+bun run typecheck           # Verificação TypeScript
+bun run lint                # Verificação Oxlint
+bun run build:web           # Build web
+bun run build:windows       # Instalador Windows x64
+```
 
-Install Bun at the version in `package.json` and the Node.js LTS used by CI before you build the client.
-Take a look at the scripts in `package.json` to see how to run a dev env locally.
-You can also refer to the GitHub actions workflows to see how production builds are made.
+O instalador Windows é criado em `release-artifacts/DevPlus-Control-Setup.exe`. A geração da marca atualiza os ícones e o favicon a partir de `branding/devplus-logo.png`:
 
-### Update RPC bindings
+```bash
+bun run branding:generate
+bun run branding:check
+```
 
-The client generates its RPC bindings directly from the SoulFire repository with [Buf](https://buf.build/docs/generate/).
-`buf.gen.yaml` pins the source to a full Git commit hash, independent of server and SDK releases.
-The server revision also pins the imported schemas through its `buf.lock`.
+Consulte [`DEVPLUS.md`](DEVPLUS.md) para detalhes das personalizações, da distribuição do código-fonte e dos recursos de marca.
 
-1. Push the protocol changes to the SoulFire repository.
-2. Set `inputs[0].ref` in `buf.gen.yaml` to that commit's full hash.
-3. Run `bun run protocol:generate`.
-4. Update affected client code and run `bun run typecheck`, `bun test`, and `bun run build:web`.
-5. Commit the pin, generated bindings, and client changes together.
+## Atualizar os bindings RPC
 
-The generated files in `src/generated/` are checked in. Normal builds do not fetch schemas or require a server checkout.
-CI regenerates the bindings and checks for differences. Generation requires Git and network access to GitHub and the Buf Schema Registry.
-The generator versions are pinned in `package.json` and `bun.lock`.
+Os bindings RPC são gerados a partir dos esquemas do repositório SoulFire usando [Buf](https://buf.build/docs/generate/). O arquivo `buf.gen.yaml` fixa a origem em um hash completo de commit; a revisão do servidor também fixa os esquemas importados em `buf.lock`.
 
-For local protocol development, run `bun run protocol:generate -- ../SoulFire` to generate from a local server checkout.
-Before committing the client changes, update the remote pin and regenerate without the local path.
+1. Envie as alterações de protocolo para o repositório SoulFire.
+2. Atualize `inputs[0].ref` em `buf.gen.yaml` com o hash completo do commit.
+3. Execute `bun run protocol:generate`.
+4. Atualize o código afetado e execute `bun run typecheck`, `bun test` e `bun run build:web`.
+5. Envie juntos o pin, os bindings gerados e as alterações do cliente.
 
-New client features must handle older servers that omit optional fields or do not implement new RPC methods.
+Os arquivos gerados em `src/generated/` são versionados. Builds normais não baixam esquemas nem precisam de um checkout do servidor. O CI regenera os bindings e verifica diferenças. A geração exige Git e acesso de rede ao GitHub e ao Buf Schema Registry; as versões das ferramentas estão fixadas em `package.json` e `bun.lock`.
 
-## Sponsors
+Para desenvolvimento local do protocolo, execute `bun run protocol:generate -- ../SoulFire` usando um checkout local do servidor. Antes de enviar as alterações do cliente, restaure o pin remoto e regenere sem o caminho local.
 
-<table>
- <tbody>
-  <tr>
-   <td align="center"><img alt="[SignPath]" src="https://avatars.githubusercontent.com/u/34448643" height="30"/></td>
-   <td>Free code signing on Windows provided by <a href="https://signpath.io/?utm_source=foundation&utm_medium=github&utm_campaign=soulfire">SignPath.io</a>, certificate by <a href="https://signpath.org/?utm_source=foundation&utm_medium=github&utm_campaign=soulfire">SignPath Foundation</a></td>
-  </tr>
- </tbody>
-</table>
+Novas funcionalidades precisam continuar lidando com servidores antigos que não incluam campos opcionais ou não implementem métodos RPC recentes.
 
-## Contributing and support
+## Contribuição e suporte
 
-Read [CONTRIBUTING.md](CONTRIBUTING.md) for local setup and review expectations.
-Use [SUPPORT.md](SUPPORT.md) for questions and issue routing.
-Follow the [community code of conduct](https://github.com/soulfiremc-com/.github/blob/main/CODE_OF_CONDUCT.md) and report vulnerabilities through the [private security contacts](https://github.com/soulfiremc-com/.github/blob/main/SECURITY.md).
+- Leia [`CONTRIBUTING.md`](CONTRIBUTING.md) para conhecer o fluxo de desenvolvimento e revisão.
+- Abra uma [issue neste repositório](https://github.com/GuizeraaaXyz/devplus-control/issues) para relatar problemas do Dev+ Control.
+- Consulte o [código de conduta da comunidade SoulFire](https://github.com/soulfiremc-com/.github/blob/main/CODE_OF_CONDUCT.md) ao participar do projeto upstream.
+- Para relatar uma vulnerabilidade no projeto original, use os [contatos privados de segurança do SoulFire](https://github.com/soulfiremc-com/.github/blob/main/SECURITY.md).
+
+## Licença e atribuição
+
+O Dev+ Control é uma distribuição personalizada baseada no SoulFireClient e em seus contribuidores. O projeto original é licenciado sob a [AGPL-3.0](LICENSE); seus avisos e atribuições permanecem no código-fonte. Consulte [`DEVPLUS.md`](DEVPLUS.md) para as condições de distribuição do código-fonte correspondente a uma versão modificada.
